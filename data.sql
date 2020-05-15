@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY,
     username TEXT,
     email TEXT,
-    password TEXT,
-    dateOfBirth DATE,
+    date_of_birth DATE,
     balance NUMERIC
 );
 
