@@ -3,7 +3,9 @@ Back to the game est un site web e-commerce proposant des jeux a des prix extrê
 
 ## Lancement du server
 Pour lancer le server NodeJS en mode dev (relancement du serveur automatiquement) il suffit de lancer la commande :
+
 `npm run dev`
 
 Pour le lancer comme en production (pas de restart automatique du serveur à chaque "Ctrl+S"), il faut utiliser : 
+
 `npm run start`
