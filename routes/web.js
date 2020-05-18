@@ -8,6 +8,7 @@ const Mark = require("../models/Mark");
 const Order = require("../models/Order");
 const Plateform = require("../models/Plateform");
 const Product = require("../models/Product");
+const Cart = require("../models/Cart");
 
 router.get("/users", (req, res) => {
   User.findAll()
@@ -42,6 +43,11 @@ router.get("/plateforms", (req, res) => {
 router.get("/products", (req, res) => {
   Product.findAll()
     .then((products) => res.send(products))
+    .catch((err) => console.log(err));
+});
+router.get("/carts", (req, res) => {
+  Cart.findAll()
+    .then((carts) => res.send(carts))
     .catch((err) => console.log(err));
 });
 
