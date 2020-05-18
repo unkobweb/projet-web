@@ -26,5 +26,10 @@ router.get("/marks", (req, res) => {
     .then((marks) => res.send(marks))
     .catch((err) => console.log(err));
 });
+router.get("/orders", (req, res) => {
+  Order.findAll()
+    .then((orders) => res.send(orders))
+    .catch((err) => console.log(err));
+});
 
 module.exports = router;
