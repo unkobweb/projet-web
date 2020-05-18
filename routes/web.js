@@ -5,6 +5,8 @@ const User = require("../models/User");
 const Game = require("../models/Game");
 const CdKey = require("../models/CdKey");
 const Mark = require("../models/Mark");
+const Order = require("../models/Order");
+const Plateform = require("../models/Plateform");
 
 router.get("/users", (req, res) => {
   User.findAll()
@@ -28,6 +30,11 @@ router.get("/marks", (req, res) => {
 });
 router.get("/orders", (req, res) => {
   Order.findAll()
+    .then((orders) => res.send(orders))
+    .catch((err) => console.log(err));
+});
+router.get("/plateforms", (req, res) => {
+  Plateform.findAll()
     .then((orders) => res.send(orders))
     .catch((err) => console.log(err));
 });
