@@ -11,7 +11,7 @@ db.authenticate()
 
 const app = express();
 
-app.use("/users", require("./routes/users"));
+app.use("/", require("./routes/web"));
 
 const PORT = 8000;
 app.listen(PORT, console.log(`Server started on ${PORT}`));
