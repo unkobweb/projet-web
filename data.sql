@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS cdKeys(
 CREATE TABLE IF NOT EXISTS orders(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    date_Of_Sale DATE,
+    date_Of_Sale TIMESTAMP,
     state INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
