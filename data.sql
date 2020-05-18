@@ -50,18 +50,18 @@ CREATE TABLE IF NOT EXISTS marks(
     FOREIGN KEY (game_id) REFERENCES games(id)
 );
 
-CREATE TABLE IF NOT EXISTS cdKey(
+CREATE TABLE IF NOT EXISTS cdKeys(
     id SERIAL PRIMARY KEY,
     game_id INTEGER,
-    cdKey TEXT,
-    isUsed BOOLEAN,
+    cd_Key TEXT,
+    is_Used BOOLEAN,
     FOREIGN KEY (game_id) REFERENCES games(id)
 );
 
 CREATE TABLE IF NOT EXISTS orders(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    dateOfSale DATE,
+    date_Of_Sale DATE,
     state INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
@@ -74,6 +74,6 @@ CREATE TABLE IF NOT EXISTS products(
     price NUMERIC,
     discount INTEGER,
     FOREIGN KEY (game_id) REFERENCES games(id),
-    FOREIGN KEY (key_id) REFERENCES cdKey(id),
+    FOREIGN KEY (key_id) REFERENCES cdKeys(id),
     FOREIGN KEY (order_id) REFERENCES orders(id)
 );
