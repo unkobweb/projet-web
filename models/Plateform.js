@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
-const db = require("../config/database");
 
-const Plateform = db.define(
+const Plateform = sequelize.define(
   "plateform",
   {
     id: {

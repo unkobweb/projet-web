@@ -2,14 +2,14 @@ const Sequelize = require("sequelize");
 const db = require("../config/database");
 
 const Order = db.define(
-  "order",
+  "orders",
   {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
     },
     user_id: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
     },
     date_of_sale: {
       type: Sequelize.DATE,

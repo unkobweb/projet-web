@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../config/database");
 
 const Game = db.define(
-  "game",
+  "games",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -34,4 +34,5 @@ const Game = db.define(
     timestamps: false,
   }
 );
+
 module.exports = Game;

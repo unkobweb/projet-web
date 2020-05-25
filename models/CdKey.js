@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
-const db = require("../config/database");
 
-const CdKey = db.define(
+const CdKey = sequelize.define(
   "cdkey",
   {
     id: {

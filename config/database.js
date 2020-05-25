@@ -15,3 +15,6 @@ module.exports = new Sequelize(
     },
   }
 );
+
+module.exports = sequelize;
+global.sequelize = sequelize;
