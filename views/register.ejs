@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incription</title>
+  </head>
+  <body>
+    <form action="/register" method="POST">
+      <input
+        type="text"
+        name="username"
+        placeholder="Nom d'utilisateur"
+        required
+      />
+      <input type="email" name="mail" placeholder="Adresse e-mail" required />
+      <input
+        type="password"
+        name="password"
+        placeholder="Mot de passe"
+        required
+      />
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirmez le mot de passe"
+        required
+      />
+      <input type="submit" value="S'inscrire" />
+    </form>
+  </body>
+  <script src="/js/register.js"></script>
+</html>

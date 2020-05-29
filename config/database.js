@@ -1,10 +1,12 @@
 const Sequelize = require("sequelize");
-module.exports = new Sequelize(
-  "kobweb_projet_web",
-  "kobweb_node",
-  "simonandalex44200",
+require("dotenv").config();
+
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
   {
-    host: "postgresql-kobweb.alwaysdata.net",
+    host: process.env.DB_HOST,
     dialect: "postgres",
 
     pool: {
