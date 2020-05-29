@@ -6,28 +6,39 @@
     <title>Incription</title>
   </head>
   <body>
-    <form action="/register" method="POST">
-      <input
-        type="text"
-        name="username"
-        placeholder="Nom d'utilisateur"
-        required
-      />
-      <input type="email" name="mail" placeholder="Adresse e-mail" required />
-      <input
-        type="password"
-        name="password"
-        placeholder="Mot de passe"
-        required
-      />
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirmez le mot de passe"
-        required
-      />
-      <input type="submit" value="S'inscrire" />
-    </form>
+    <div id="register">
+      <div v-if="message">
+        <h2>{{ message }}</h2>
+      </div>
+      <form action="/register" method="POST">
+        <input
+          type="text"
+          name="username"
+          placeholder="Nom d'utilisateur"
+          v-model="username"
+        />
+        <input
+          type="email"
+          name="mail"
+          placeholder="Adresse e-mail"
+          v-model="mail"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          v-model="password"
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmez le mot de passe"
+          v-model="confirmPassword"
+        />
+        <input type="button" @click="register" value="S'inscrire" />
+      </form>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="/js/register.js"></script>
 </html>

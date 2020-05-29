@@ -1,34 +1,64 @@
 const User = require("../models/User");
 
-function register(req, res) {
+async function register(req, res) {
   let request = req.body;
-  if (request.password == request.confirmPassword) {
-    auth
-      .createUserWithEmailAndPassword(request.mail, request.password)
-      .then(async () => {
-        console.log(`Utilisateur ${request.username} créé !`);
-        await User.create({
-          username: request.username,
-          email: request.mail,
-        });
-        res.sendStatus(200);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.sendStatus(500);
+  let error = false;
+  await auth
+    .createUserWithEmailAndPassword(request.mail, request.password)
+    .then(async () => {
+      console.log(auth.currentUser.uid);
+      let newUser = await User.build({
+        id: auth.currentUser.uid,
+        username: request.username,
+        email: request.mail,
       });
-  } else {
-    console.log("Pas les mêmes mots de passe");
-    res.sendStatus(500);
-  }
+      await newUser.save();
+    })
+    .catch((err) => {
+      console.log(err);
+      error = "Une erreur est survenue !";
+      switch (err.code) {
+        case "auth/weak-password":
+          error = "Mot de passe faibles (6 caractères minimum)";
+          break;
+        case "auth/email-already-in-use":
+          error = "Cette adresse mail est déjà lié à un compte";
+          break;
+      }
+    });
+  res.send({
+    err: error,
+  });
 }
 
-function login(req, res){
-  
+async function login(req, res) {
+  let request = req.body;
+  let error = false;
+  console.log("oui");
+  await auth
+    .signInWithEmailAndPassword(request.mail, request.password)
+    .then(async () => {
+      console.log(auth.currentUser.uid);
+    })
+    .catch((err) => {
+      console.log(err);
+      error = "Une erreur est survenue !";
+      switch (err.code) {
+        case "auth/wrong-password":
+          error = "Mauvaise combinaison Adresse mail / Mot de passe !";
+          break;
+        case "auth/invalid-email":
+          error = "Cette adresse mail n'est attribuée à aucun compte";
+          break;
+      }
+    });
+  res.send({
+    err: error,
+  });
 }
 
 function indexLogin(req, res) {
-  
+  res.render("../views/login.ejs");
 }
 
 function indexRegister(req, res) {

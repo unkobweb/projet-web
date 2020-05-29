@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
 
 CREATE TABLE IF NOT EXISTS users(
-    id SERIAL PRIMARY KEY,
+    id TEXT PRIMARY KEY,
     username TEXT,
     email TEXT,
     date_of_birth DATE,
