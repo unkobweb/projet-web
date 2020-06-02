@@ -1,0 +1,9 @@
+DB_HOST=postgresql-kobweb.alwaysdata.net
+DB_PORT=5432
+DB_USER=kobweb_node
+DB_PASS=simonandalex44200
+DB_NAME=kobweb_projet_web
+
+APIKEY=AIzaSyBNHbpw_xyCeYmm30OtArbZe7SFCteL34E
+AUTH_DOMAIN=to-game-together.firebaseapp.com
+STORAGE_BUCKET=to-game-together.appspot.com
