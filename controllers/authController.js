@@ -57,6 +57,19 @@ async function login(req, res) {
   });
 }
 
+async function externalConnexion(req, res) {
+  let currentUser = await User.findOne({ id: req.body.id });
+  if (currentUser == null) {
+    let newUser = await User.build({
+      id: req.body.id,
+      username: req.body.name,
+      email: req.body.mail,
+    });
+    await newUser.save();
+  }
+  res.send(200);
+}
+
 function indexLogin(req, res) {
   res.render("../views/login.ejs");
 }
@@ -65,4 +78,10 @@ function indexRegister(req, res) {
   res.render("../views/register.ejs");
 }
 
-module.exports = { register, indexRegister, login, indexLogin };
+module.exports = {
+  register,
+  indexRegister,
+  externalConnexion,
+  login,
+  indexLogin,
+};

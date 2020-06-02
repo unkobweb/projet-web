@@ -11,5 +11,6 @@ router.get("/register", authController.indexRegister);
 router.post("/register", urlencodedParser, authController.register);
 router.get("/login", authController.indexLogin);
 router.post("/login", authController.login);
+router.post("/externalConnexion", authController.externalConnexion);
 
 module.exports = router;
