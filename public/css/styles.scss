@@ -1,7 +1,7 @@
 // Values
 
 // Colors
-$fond: #1F1F1f;
+$fond: #061539;
 //Breakpoints
 
 html, body {
@@ -9,6 +9,6 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: $fond;
 }
 
