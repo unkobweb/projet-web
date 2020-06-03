@@ -11,18 +11,18 @@
       <div v-if="message">
         <h2>{{ message }}</h2>
       </div>
-      <form>
-        <input type="email" v-model="mail" placeholder="Adresse mail" />
-        <input type="password" v-model="password" placeholder="Mot de passe" />
-        <img
+      <form class='form'>
+        <input class='input-mail neumo' type="email" v-model="mail" placeholder="Adresse mail" />
+        <input class='input-pass neumo' type="password" v-model="password" placeholder="Mot de passe" />
+        <img class='img-gl neumo'
           src="/img/google_logo.png"
           @click="externalLogin('this.googleProvider')"
         />
-        <img
+        <img class='img-fb neumo'
           src="/img/facebook_logo.png"
           @click="externalLogin('this.facebookProvider')"
         />
-        <input type="button" value="Se connecter" @click="login" />
+        <input class='connect-button neumo' type="button" value="Se connecter" @click="login" />
       </form>
     </div>
   </body>

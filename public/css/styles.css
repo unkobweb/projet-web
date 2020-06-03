@@ -5,3 +5,51 @@ html, body {
   height: 100%;
   background: #061539;
 }
+
+#login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+#login .form {
+  display: flex;
+}
+
+#login .form .neumo {
+  border-radius: 8px;
+  border: none;
+  background: #061539;
+  box-shadow: 15px 15px 26px #051231,  -15px -15px 26px #071841;
+}
+
+#login .form .img-gl {
+  order: -2;
+  width: 50px;
+  height: 50px;
+}
+
+#login .form .img-fb {
+  order: -2;
+  width: 50px;
+  height: 50px;
+}
+
+#login .form .input-mail {
+  color: #E14544;
+  width: 180px;
+  height: 30px;
+}
+
+#login .form .input-pass {
+  color: #E14544;
+  width: 180px;
+  height: 30px;
+}
+
+#login .form .connect-button {
+  color: #E14544;
+  width: 180px;
+  height: 36px;
+}

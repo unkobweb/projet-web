@@ -2,7 +2,8 @@
 
 // Colors
 $fond: #061539;
-//Breakpoints
+$sombre: #061539;
+$orange: #E14544;
 
 html, body {
     padding: 0;
@@ -12,3 +13,51 @@ html, body {
     background: $fond;
 }
 
+#login {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: nowrap;
+    .form {
+        display: flex;
+
+
+        .neumo{
+            border-radius: 8px;
+            border:none;
+            background: $sombre;
+            box-shadow:  15px 15px 26px #051231, 
+                         -15px -15px 26px #071841;
+        }
+        
+        .img-gl {
+            order: -2;
+            width: 50px; 
+            height: 50px;
+        }
+        .img-fb {
+            order: -2;
+            width: 50px;
+            height: 50px;
+        }
+
+        .input-mail {
+            color: $orange;
+            width: 180px;
+            height: 30px;
+        }
+
+        .input-pass {
+            color: $orange;
+            width: 180px;
+            height: 30px;
+        }
+        
+        .connect-button {  
+            color: $orange;
+            width: 180px;
+            height: 36px;
+
+        }
+    }
+}
