@@ -2,7 +2,8 @@
 
 // Colors
 $fond: #061539;
-$sombre: #061539;
+$light-shade: #040e25;
+$dark-shade: #081c4d;
 $orange: #E14544;
 
 html, body {
@@ -19,13 +20,25 @@ justify-content: center;
 height: 100vh;
 align-items: center;
 flex-wrap: nowrap;
+
+    // .tgt-logo-div{
+    //     width: 10px;
+    //     height: 10px;
+    // }
+
     .form {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
         .img-glo {
-            
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 250px;
+            margin: 10%;
+
             .img-gl, .img-fb {
                 height: 100px;
                 width: 100px;
@@ -35,29 +48,32 @@ flex-wrap: nowrap;
         .neumo{
             border-radius: 8px;
             border:none;
-            background: $sombre;
-            box-shadow:  15px 15px 26px #051231, 
-                         -15px -15px 26px #071841;
+            background: $fond;
+            box-shadow:  10px 10px 20px $light-shade, 
+                         -10px -10px 20px $dark-shade;
         }
 
+        .inputs {
 
-        .input-mail {
-            color: $orange;
-            width: 180px;
-            height: 30px;
+            .input-mail {
+                color: $orange;
+                width: 180px;
+                height: 30px;
+            }
+    
+            .input-pass {
+                color: $orange;
+                width: 180px;
+                height: 30px;
+            }
+            
+            .connect-button {  
+                color: $orange;
+                width: 180px;
+                height: 36px;
+    
+            }
         }
 
-        .input-pass {
-            color: $orange;
-            width: 180px;
-            height: 30px;
-        }
-        
-        .connect-button {  
-            color: $orange;
-            width: 180px;
-            height: 36px;
-
-        }
     }
 }
