@@ -58,7 +58,7 @@ async function login(req, res) {
 }
 
 async function externalConnexion(req, res) {
-  let currentUser = await User.findOne({ id: req.body.id });
+  let currentUser = await User.findOne({ where: { id: req.body.id } });
   if (currentUser == null) {
     let newUser = await User.build({
       id: req.body.id,

@@ -7,15 +7,21 @@ const Plateform = require("../models/Plateform");
 const Product = require("../models/Product");
 const Cart = require("../models/Cart");
 
-function index(req, res) {
-  Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
-  //Game.belongsTo(Plateform, { as: "Plateform", foreignKey: "plateform_id" });
+Game.belongsTo(Plateform, { as: "Plateform", foreignKey: "plateform_id" });
 
-  Plateform.findAll({
-    include: [{ model: Game, as: "Jeux" }],
-  })
-    .then((users) => res.send(JSON.stringify(users, null, 4)))
-    .catch((err) => console.log(err));
+async function index(req, res) {
+  //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
+
+  let games = await Game.findAll({
+    raw: true,
+    nest: true,
+    include: [{ model: Plateform, as: "Plateform" }],
+  });
+
+  console.log(games[0]);
+  res.render("index.ejs", {
+    games: games,
+  });
 }
 
 module.exports = { index };
