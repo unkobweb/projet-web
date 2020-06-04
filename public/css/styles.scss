@@ -1,14 +1,79 @@
 // Values
 
 // Colors
-$fond: #1F1F1f;
-//Breakpoints
+$fond: #061539;
+$light-shade: #040e25;
+$dark-shade: #081c4d;
+$orange: #E14544;
 
 html, body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: $fond;
 }
 
+#login {
+display: flex;
+justify-content: center;
+height: 100vh;
+align-items: center;
+flex-wrap: nowrap;
+
+    // .tgt-logo-div{
+    //     width: 10px;
+    //     height: 10px;
+    // }
+
+    .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .img-glo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 250px;
+            margin: 10%;
+
+            .img-gl, .img-fb {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        .neumo{
+            border-radius: 8px;
+            border:none;
+            background: $fond;
+            box-shadow:  10px 10px 20px $light-shade, 
+                         -10px -10px 20px $dark-shade;
+        }
+
+        .inputs {
+
+            .input-mail {
+                color: $orange;
+                width: 180px;
+                height: 30px;
+            }
+    
+            .input-pass {
+                color: $orange;
+                width: 180px;
+                height: 30px;
+            }
+            
+            .connect-button {  
+                color: $orange;
+                width: 180px;
+                height: 36px;
+    
+            }
+        }
+
+    }
+}

@@ -3,5 +3,58 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: #000000;
+  background: #061539;
+}
+
+#login {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+#login .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#login .form .img-glo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 250px;
+  margin: 10%;
+}
+
+#login .form .img-glo .img-gl, #login .form .img-glo .img-fb {
+  height: 100px;
+  width: 100px;
+}
+
+#login .form .neumo {
+  border-radius: 8px;
+  border: none;
+  background: #061539;
+  box-shadow: 10px 10px 20px #040e25, -10px -10px 20px #081c4d;
+}
+
+#login .form .inputs .input-mail {
+  color: #E14544;
+  width: 180px;
+  height: 30px;
+}
+
+#login .form .inputs .input-pass {
+  color: #E14544;
+  width: 180px;
+  height: 30px;
+}
+
+#login .form .inputs .connect-button {
+  color: #E14544;
+  width: 180px;
+  height: 36px;
 }
