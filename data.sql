@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS users(
     username TEXT,
     email TEXT,
     date_of_birth DATE,
-    balance NUMERIC
+    balance NUMERIC DEFAULT 0,
+    role INTEGER DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS plateforms(
