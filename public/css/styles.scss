@@ -1,6 +1,6 @@
 // Values
-$logo-width: 597px;
-$logo-height: 417px;
+$logo-width: 199px;
+$logo-height: 139px;
 // Colors
 $fond: #061539;
 $fond-linear: linear-gradient(145deg, #06163d, #051333);
@@ -27,10 +27,12 @@ flex-wrap: nowrap;
 flex-direction: column;
 
     .return-message {
+        size: 500px;
         font-family: Montserrat;
         color: $orange;
     }
     .tgt-logo{
+        margin-top: 100px;
         width: $logo-width;
         height: $logo-height;
     }
@@ -48,7 +50,7 @@ flex-direction: column;
             flex-direction: row;
             justify-content: space-between;
             width: 250px;
-            margin: 10%;
+            margin: 100px;
 
             .img-gl, .img-fb {
                 height: 100px;
@@ -67,6 +69,7 @@ flex-direction: column;
             display: flex;
             justify-content: space-evenly;
             width: 100%;
+            margin-bottom: 100px;
 
             .input-mail {
                 color: $orange;
