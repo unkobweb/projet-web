@@ -12,6 +12,17 @@ html, body {
   height: 100vh;
   align-items: center;
   flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+#login .return-message {
+  font-family: Montserrat;
+  color: #E14544;
+}
+
+#login .tgt-logo {
+  width: 597px;
+  height: 417px;
 }
 
 #login .form {
@@ -19,12 +30,13 @@ html, body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 60%;
 }
 
 #login .form .img-glo {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 250px;
   margin: 10%;
 }
@@ -32,29 +44,54 @@ html, body {
 #login .form .img-glo .img-gl, #login .form .img-glo .img-fb {
   height: 100px;
   width: 100px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
 }
 
-#login .form .neumo {
-  border-radius: 8px;
-  border: none;
-  background: #061539;
-  box-shadow: 10px 10px 20px #040e25, -10px -10px 20px #081c4d;
+#login .form .inputs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 #login .form .inputs .input-mail {
   color: #E14544;
   width: 180px;
   height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
 
 #login .form .inputs .input-pass {
   color: #E14544;
   width: 180px;
   height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
 
 #login .form .inputs .connect-button {
   color: #E14544;
-  width: 180px;
+  width: 100px;
   height: 36px;
+  font-family: Montserrat;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+}
+
+#login .form .inputs ::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
 }

@@ -8,27 +8,27 @@
   </head>
   <body>
     <div id='login'>
-      <div v-if='message'>
+      <div class='return-message' v-if='message'>
         <h2>{{ message }}</h2>
       </div>
-      <!-- <div class='tgt-logo-div'>
-        <img class='tgt-logo' src="/img/togames-together.png"/>
-      </div> -->
+      <div class='tgt-logo-div'>
+        <img class='tgt-logo' src="/img/logo/togames-together.png"/>
+      </div>
       <form class='form'>
         <div class='img-glo'>
           <img class='img-gl'
-          src="/img/google-96.svg"
+          src="/img/media/google-96.svg"
           @click="externalLogin('this.googleProvider')"
           />
           <img class='img-fb'
-          src="/img/facebook-96.svg"
+          src="/img/media/facebook-96.svg"
           @click="externalLogin('this.facebookProvider')"
           />
         </div>
         <div class='inputs'>
           <input class='input-mail' type="email" v-model="mail" placeholder="Adresse mail" />
           <input class='input-pass' type="password" v-model="password" placeholder="Mot de passe" />
-          <input class='connect-button' type="button" value="Se connecter" @click="login" />
+          <input class='connect-button' type="button" value="LOG IN" @click="login" />
         </div>
       </form>
     </div>

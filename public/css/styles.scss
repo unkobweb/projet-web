@@ -1,9 +1,13 @@
 // Values
-
+$logo-width: 597px;
+$logo-height: 417px;
 // Colors
 $fond: #061539;
-$light-shade: #040e25;
-$dark-shade: #081c4d;
+$fond-linear: linear-gradient(145deg, #06163d, #051333);
+$dark-shade: #030c1f;
+$light-shade: #091e53;
+$dark-shade-inset: #051230;
+$light-shade-inset: #071842;
 $orange: #E14544;
 
 html, body {
@@ -20,58 +24,96 @@ justify-content: center;
 height: 100vh;
 align-items: center;
 flex-wrap: nowrap;
+flex-direction: column;
 
-    // .tgt-logo-div{
-    //     width: 10px;
-    //     height: 10px;
-    // }
+    .return-message {
+        font-family: Montserrat;
+        color: $orange;
+    }
+    .tgt-logo{
+        width: $logo-width;
+        height: $logo-height;
+    }
 
     .form {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 60%;
+
 
         .img-glo {
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             width: 250px;
             margin: 10%;
 
             .img-gl, .img-fb {
                 height: 100px;
                 width: 100px;
+
+                //neumorphism
+                border: none;
+                border-radius: 50%;
+                background: $fond-linear;
+                box-shadow: 10px 10px 17px $dark-shade,
+                            -10px -10px 17px $light-shade;
             }
         }
 
-        .neumo{
-            border-radius: 8px;
-            border:none;
-            background: $fond;
-            box-shadow:  10px 10px 20px $light-shade, 
-                         -10px -10px 20px $dark-shade;
-        }
-
         .inputs {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
 
             .input-mail {
                 color: $orange;
                 width: 180px;
                 height: 30px;
+
+                border: none;
+                outline: none;
+                border-radius: 4px;
+                background: $fond;
+                box-shadow: inset 10px 10px 15px $dark-shade-inset,
+                            inset -10px -10px 15px $light-shade-inset;
             }
     
             .input-pass {
                 color: $orange;
                 width: 180px;
                 height: 30px;
+                          
+                border: none;
+                outline: none;
+                border-radius: 4px;
+                background: $fond;
+                box-shadow: inset 10px 10px 15px $dark-shade-inset,
+                            inset -10px -10px 15px $light-shade-inset;
             }
             
             .connect-button {  
                 color: $orange;
-                width: 180px;
+                width: 100px;
                 height: 36px;
+                font-family: Montserrat;
+                
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                background: $fond-linear;
+                box-shadow: 5px 5px 10px $dark-shade,
+                            -5px -5px 10px $light-shade;
     
+            }
+
+            ::placeholder {
+                color: white;
+                opacity: 0.5;
+                font-family: Montserrat;
+
             }
         }
 
