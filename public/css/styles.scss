@@ -16,11 +16,21 @@ html, body {
 #login {
 display: flex;
 justify-content: center;
+height: 100vh;
 align-items: center;
 flex-wrap: nowrap;
     .form {
         display: flex;
-
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .img-glo {
+            
+            .img-gl, .img-fb {
+                height: 100px;
+                width: 100px;
+            }
+        }
 
         .neumo{
             border-radius: 8px;
@@ -29,17 +39,7 @@ flex-wrap: nowrap;
             box-shadow:  15px 15px 26px #051231, 
                          -15px -15px 26px #071841;
         }
-        
-        .img-gl {
-            order: -2;
-            width: 50px; 
-            height: 50px;
-        }
-        .img-fb {
-            order: -2;
-            width: 50px;
-            height: 50px;
-        }
+
 
         .input-mail {
             color: $orange;
