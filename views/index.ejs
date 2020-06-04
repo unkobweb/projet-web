@@ -10,9 +10,12 @@
     <div>
       <img src="/img/games/<%=game.slug%>.png" />
       <h2><%= game.title%> - <%= game.Plateform.name%></h2>
-      <p><%= game.description%></p>
+      <p>
+        <%= game.description.length <= 200 ? game.description :
+        game.description.substring(0,196)+"..."%>
+      </p>
       <h4>
-        Prix <%=(game.price*(game.discount/100)).toFixed(2)%> €
+        Prix <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%> €
         -<%=game.discount%>%
       </h4>
     </div>
