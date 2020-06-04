@@ -1,5 +1,6 @@
 // Import modules
 const express = require("express");
+const session = require("express-session");
 
 // Database
 require("./config/database");
@@ -13,6 +14,14 @@ sequelize
   .catch((err) => console.log("DB Error : " + err));
 
 const app = express();
+app.use(
+  session({
+    secret: "togametogethersecret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
