@@ -3,48 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a96fd4f5ef.js" crossorigin="anonymous"></script>
     <title>Incription</title>
   </head>
   <body>
     <div id="register">
-      <div v-if="message">
-        <h2>{{ message }}</h2>
+
+      <div class="top-container">
+        <div class="previous-page">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="tgt-logo">
+          <img class='logo' src='/img/logo/togames-together.png'/>
+        </div>
+        <div class="empty"></div>
       </div>
-      <form action="/register" method="POST">
-        <input
-          type="text"
-          name="username"
-          placeholder="Nom d'utilisateur"
-          v-model="username"
-        />
-        <input
-          type="email"
-          name="mail"
-          placeholder="Adresse e-mail"
-          v-model="mail"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"
-          v-model="password"
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirmez le mot de passe"
-          v-model="confirmPassword"
-        />
-        <img
-          src="/img/google_logo.png"
-          @click="externalLogin('this.googleProvider')"
-        />
-        <img
-          src="/img/facebook_logo.png"
-          @click="externalLogin('this.facebookProvider')"
-        />
-        <input type="button" @click="register" value="S'inscrire" />
-      </form>
+
+      <div class="return-message" v-if='message'>
+        <h2 class="ret-message"> {{ message }}</h2>
+      </div>
+
+      <div class="bot-container" action="/register" method="POST">
+
+        <div class="username-input">
+          <h3 class="username">USERNAME</h3>
+          <input class="inputU" type="text" name="username" placeholder="Nom d'utilisateur" v-mmodel="username" />
+        </div>
+
+        <div class="register-inputs">
+          <div class="top-inputs">
+            <div class="pass">
+              <h3 class="passw">PASSWORD</h3>
+              <input class="passput" type="password" name="password" placeholder="Mot de passe" v-model="password" />
+            </div>
+  
+            <div class="confpass">
+              <h3 class="confirm-password">CONFIRM PASSWORD</h3>
+              <input class="confpassput" type="password" name="confirmPassword" placeholder="Confirmez le mot de passe" v-model="confirmPassword" />
+            </div>
+          </div>
+
+          <div class="mid-inputs">
+            <div class="mail">
+              <h3 class="mailT">E-MAIL</h3>
+              <input class="mailput" type="email" name="mail" placeholder="Adresse e-mail" v-model="mail" />
+            </div>
+            <div class="birth">
+              <h3 class="date-of-birth">DATE OF BIRTH</h3>
+              <input class="dateput" type="date" name="date-of-birth" placeholder="Date de naissance"/>
+            </div>
+          </div>
+          <div class="bot-signup">
+            <div class="singup-button">
+              <input class="signup" type="button" @click="register" value="SIGN UP" />
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
     </div>
   </body>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
