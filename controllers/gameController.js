@@ -25,7 +25,12 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  let game = await Game.findOne({ raw: true, where: { id: req.params.id } });
+  let game = await Game.findOne({
+    raw: true,
+    nest: true,
+    include: [{ model: Plateform, as: "Plateform" }],
+    where: { id: req.params.id },
+  });
   console.log(game);
   res.render("game.ejs", { game: game });
 }
