@@ -24,4 +24,10 @@ async function index(req, res) {
   });
 }
 
-module.exports = { index };
+async function show(req, res) {
+  let game = await Game.findOne({ raw: true, where: { id: req.params.id } });
+  console.log(game);
+  res.render("game.ejs", { game: game });
+}
+
+module.exports = { index, show };
