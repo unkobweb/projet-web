@@ -10,6 +10,9 @@ const Plateform = sequelize.define(
     name: {
       type: Sequelize.STRING,
     },
+    slug: {
+      type: Sequelize.STRING,
+    },
   },
   {
     timestamps: false,
