@@ -1,6 +1,11 @@
 function validateEmail(email) {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
+}
+
+function validateDate(date) {
+  let re = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+  return re.test(String(date).toLowerCase());
 }
 
 let register = new Vue({
@@ -23,29 +28,26 @@ let register = new Vue({
     mail: "",
     password: "",
     confirmPassword: "",
-    error: false,
+    dateOfBirth: new Date(),
   },
   methods: {
     register: function () {
+      console.log(this.dateOfBirth);
+      console.log(validateDate(this.dateOfBirth));
       this.message = "";
-      this.error = false;
       if (this.username.trim().length <= 0) {
-        this.message += "Vous n'avez pas rentré de nom d'utilisateur\n";
-        this.error = true;
-      }
-      if (!validateEmail(this.mail.trim())) {
-        this.message += "Vous n'avez pas renseigné une adresse mail valide\n";
-        this.error = true;
-      }
-      if (
+        this.message = "Vous n'avez pas rentré de nom d'utilisateur\n";
+      } else if (!validateEmail(this.mail.trim())) {
+        this.message = "Vous n'avez pas renseigné une adresse mail valide\n";
+      } else if (
         this.password.trim() !== this.confirmPassword.trim() ||
         this.password.trim().length <= 0
       ) {
-        this.message +=
+        this.message =
           "Vous n'avez pas renseigné deux mots de passes valides et identiques";
-        this.error = true;
-      }
-      if (!this.error) {
+      } else if (!validateDate(this.dateOfBirth)) {
+        this.message = "Vous n'avez pas entré votre date de naissance";
+      } else {
         fetch("/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -53,6 +55,7 @@ let register = new Vue({
             username: this.username,
             mail: this.mail,
             password: this.password,
+            date: this.dateOfBirth,
           }),
         })
           .then((data) => data.json())

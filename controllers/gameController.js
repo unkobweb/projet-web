@@ -21,6 +21,7 @@ async function index(req, res) {
   console.log(games[0]);
   res.render("index.ejs", {
     games: games,
+    session: req.session.user,
   });
 }
 

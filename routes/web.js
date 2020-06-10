@@ -13,5 +13,6 @@ router.get("/login", authController.indexLogin);
 router.post("/login", authController.login);
 router.post("/externalConnexion", authController.externalConnexion);
 router.get("/game/:id", gameController.show);
+router.get("/disconnect", authController.disconnect);
 
 module.exports = router;

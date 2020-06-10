@@ -6,13 +6,14 @@ async function register(req, res) {
   await auth
     .createUserWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
-      console.log(auth.currentUser.uid);
       let newUser = await User.build({
         id: auth.currentUser.uid,
         username: request.username,
         email: request.mail,
+        date_of_birth: request.date,
       });
       await newUser.save();
+      req.session.user = newUser.dataValues;
     })
     .catch((err) => {
       console.log(err);
@@ -32,13 +33,19 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
   let request = req.body;
   let error = false;
-  console.log("oui");
   await auth
     .signInWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
-      console.log(auth.currentUser.uid);
+      let user = await User.findOne({
+        raw: true,
+        where: { id: auth.currentUser.uid },
+      });
+      req.session.user = user;
     })
     .catch((err) => {
       console.log(err);
@@ -58,7 +65,10 @@ async function login(req, res) {
 }
 
 async function externalConnexion(req, res) {
-  let currentUser = await User.findOne({ where: { id: req.body.id } });
+  let currentUser = await User.findOne({
+    raw: true,
+    where: { id: req.body.id },
+  });
   if (currentUser == null) {
     let newUser = await User.build({
       id: req.body.id,
@@ -66,16 +76,30 @@ async function externalConnexion(req, res) {
       email: req.body.mail,
     });
     await newUser.save();
+    req.session.user = newUser.dataValues;
+  } else {
+    req.session.user = currentUser;
   }
   res.send(200);
 }
 
 function indexLogin(req, res) {
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
   res.render("../views/login.ejs");
 }
 
 function indexRegister(req, res) {
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
   res.render("../views/register.ejs");
+}
+
+function disconnect(req, res) {
+  req.session.user = undefined;
+  res.redirect("/login");
 }
 
 module.exports = {
@@ -84,4 +108,5 @@ module.exports = {
   externalConnexion,
   login,
   indexLogin,
+  disconnect,
 };
