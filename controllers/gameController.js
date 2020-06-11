@@ -8,6 +8,8 @@ const Product = require("../models/Product");
 const Cart = require("../models/Cart");
 
 Game.belongsTo(Plateform, { as: "Plateform", foreignKey: "plateform_id" });
+Game.hasMany(Mark, { as: "avis", foreignKey: "game_id" });
+Mark.belongsTo(User, { as: "author", foreignKey: "user_id" });
 
 async function index(req, res) {
   //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
@@ -27,12 +29,13 @@ async function index(req, res) {
 
 async function show(req, res) {
   let game = await Game.findOne({
-    raw: true,
-    nest: true,
-    include: [{ model: Plateform, as: "Plateform" }],
+    include: [
+      { model: Plateform, as: "Plateform" },
+      { model: Mark, as: "avis", include: [{ model: User, as: "author" }] },
+    ],
     where: { id: req.params.id },
   });
-  console.log(game);
+  console.log(JSON.stringify(game, null, 4));
   res.render("game.ejs", { game: game });
 }
 
