@@ -87,3 +87,9 @@ INSERT INTO games (title, description, slug, quantity, price, discount, platefor
 ('Dead by Daylight',E'Il y a à proprement parler deux façons de jouer : quatre joueurs en ligne joignent leurs forces contre un seul tueur, qui est aussi un joueur en ligne. Vous pouvez donc être désigné comme le tueur ou être parmi les 4 personnes chargées de le vaincre. Ce qui met rapidement la pression !','dead_by_daylight',40,20.00,60,1),
 ('Dead by Daylight',E'Il y a à proprement parler deux façons de jouer : quatre joueurs en ligne joignent leurs forces contre un seul tueur, qui est aussi un joueur en ligne. Vous pouvez donc être désigné comme le tueur ou être parmi les 4 personnes chargées de le vaincre. Ce qui met rapidement la pression !','dead_by_daylight',40,20.00,60,2),
 ('Death Stranding',E'Sam Bridges affronte un monde totalement transformé par le Death Stranding. Transportant les vestiges dissociés de notre futur, il s\'embarque dans une aventure pour reconstruire un monde détruit.','death_stranding',80,60.00,10,2);
+
+INSERT INTO plateforms (name, slug) VALUES
+('Steam', 'steam'),
+('Playstation 4', 'playstation_4'),
+('Switch','switch'),
+('Xbox One', 'xbox_one');
