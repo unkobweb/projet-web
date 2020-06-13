@@ -55,6 +55,26 @@ async function addToCart(req, res) {
   }
 }
 
+async function removeFromCart(req, res) {
+  if (req.session.user) {
+    let cart = await Cart.findOne({
+      where: {
+        id: req.params.id,
+        userId: req.session.user.id,
+      },
+    });
+    await cart.destroy();
+    let userWithNewCart = await User.findOne({
+      where: { id: req.session.user.id },
+      include: [{ model: Cart, include: [Game] }],
+    });
+    req.session.user = userWithNewCart.dataValues;
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(501);
+  }
+}
+
 function cart(req, res) {
   res.render("cart.ejs", { session: req.session.user });
 }
