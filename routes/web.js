@@ -2,10 +2,16 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
+require("dotenv").config();
 
 const gameController = require("../controllers/gameController");
 const authController = require("../controllers/authController");
 
+router.use("/", (req, res, next) => {
+  req.session.style = process.env.STYLE || "simon";
+  console.log(req.session);
+  next();
+});
 router.get("/", gameController.index);
 router.get("/register", authController.indexRegister);
 router.post("/register", urlencodedParser, authController.register);
