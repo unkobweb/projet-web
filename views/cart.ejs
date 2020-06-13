@@ -6,11 +6,20 @@
     <title>Mon panier</title>
   </head>
   <body>
-    <%session.Carts.forEach(jeu => {%>
-    <div>
-      <h2><%=jeu.Game.title%></h2>
-      <p>Quantité : <%=jeu.quantity%></p>
+    <div id="cart">
+      <%session.Carts.forEach(jeu => {%>
+      <div>
+        <h2>
+          <%=jeu.Game.title%>
+          <button @click="removeProduct(<%=jeu.id%>)">
+            Supprimer
+          </button>
+        </h2>
+        <p>Quantité : <%=jeu.quantity%></p>
+      </div>
+      <%});%>
     </div>
-    <%});%>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/cart.js"></script>
   </body>
 </html>
