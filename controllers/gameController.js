@@ -40,3 +40,31 @@ async function show(req, res) {
 }
 
 module.exports = { index, show };
+async function addToCart(req, res) {
+  console.log("bonsoir");
+  if (req.session.user != undefined) {
+    let game = await Game.findOne({ raw: true, where: { id: req.params.id } });
+    let cartExist = await Cart.findOne({
+      where: { userId: req.session.user.id, gameId: game.id },
+    });
+    if (cartExist) {
+      await cartExist.increment("quantity", { by: 1 });
+    } else {
+      await Cart.create({
+        userId: req.session.user.id,
+        gameId: game.id,
+        quantity: 1,
+      });
+    }
+    let userWithNewCart = await User.findOne({
+      where: { id: req.session.user.id },
+      include: [{ model: Cart, include: [Game] }],
+    });
+    console.log(userWithNewCart.dataValues);
+    req.session.user = userWithNewCart.dataValues;
+    res.send({ status: "success" });
+  } else {
+    res.send({ status: "error" });
+  }
+}
+
