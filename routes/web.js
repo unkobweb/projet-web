@@ -14,6 +14,7 @@ router.post("/login", authController.login);
 router.post("/externalConnexion", authController.externalConnexion);
 router.get("/game/:id", gameController.show);
 router.get("/disconnect", authController.disconnect);
+router.post("/buy/:id", gameController.addToCart);
 router.get("/cart", gameController.cart);
 
 module.exports = router;
