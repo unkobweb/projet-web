@@ -2,6 +2,11 @@
 const express = require("express");
 const session = require("express-session");
 
+const User = require("./models").User;
+const Game = require("./models").Game;
+const Cart = require("./models").Cart;
+const Plateform = require("./models").Plateform;
+
 //Firebase
 require("./config/authentication");
 
