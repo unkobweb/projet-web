@@ -16,7 +16,7 @@
       <h5><%=game.quantity%> jeux restants</h5>
       <button :disabled="quantity <= 0" @click="buy">Acheter</button>
       <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
-      <%game.avis.forEach(avis => {%>
+      <%game.Marks.forEach(avis => {%>
       <p><%=JSON.stringify(avis)%></p>
       <%});%>
     </div>
