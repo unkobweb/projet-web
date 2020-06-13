@@ -61,3 +61,7 @@ async function addToCart(req, res) {
   }
 }
 
+function cart(req, res) {
+  res.render("cart.ejs", { session: req.session.user });
+}
+
