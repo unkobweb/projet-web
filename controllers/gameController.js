@@ -32,7 +32,6 @@ async function show(req, res) {
   res.render("game.ejs", { game: game });
 }
 
-module.exports = { index, show };
 async function addToCart(req, res) {
   console.log("bonsoir");
   if (req.session.user != undefined) {
@@ -65,3 +64,4 @@ function cart(req, res) {
   res.render("cart.ejs", { session: req.session.user });
 }
 
+module.exports = { index, show, addToCart, cart };
