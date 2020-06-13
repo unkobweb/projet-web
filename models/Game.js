@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Game.hasMany(models.Cart, { foreignKey: "gameId" });
     Game.hasMany(models.Mark, { foreignKey: "gameId" });
+    Game.hasMany(models.Products, { foreignKey: "gameId" });
     Game.belongsTo(models.Plateform, { foreignKey: "plateform_id" });
   };
   return Game;
