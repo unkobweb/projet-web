@@ -6,7 +6,16 @@ let game = new Vue({
   },
   methods: {
     buy: function () {
-      console.log("oui");
+      fetch("/buy/" + this.id, { method: "POST" })
+        .then((data) => {
+          return data.json();
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.status == "success") {
+            window.location.href = "/cart";
+          }
+        });
     },
   },
   created: function () {
