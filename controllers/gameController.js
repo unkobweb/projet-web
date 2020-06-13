@@ -12,8 +12,6 @@ async function index(req, res) {
     nest: true,
     include: [{ model: Plateform, as: "Plateform" }],
   });
-
-  console.log(games[0]);
   res.render("index.ejs", {
     games: games,
     session: req.session.user,
@@ -28,12 +26,10 @@ async function show(req, res) {
     ],
     where: { id: req.params.id },
   });
-  console.log(JSON.stringify(game, null, 4));
   res.render("game.ejs", { game: game });
 }
 
 async function addToCart(req, res) {
-  console.log("bonsoir");
   if (req.session.user != undefined) {
     let game = await Game.findOne({ raw: true, where: { id: req.params.id } });
     let cartExist = await Cart.findOne({
@@ -52,7 +48,6 @@ async function addToCart(req, res) {
       where: { id: req.session.user.id },
       include: [{ model: Cart, include: [Game] }],
     });
-    console.log(userWithNewCart.dataValues);
     req.session.user = userWithNewCart.dataValues;
     res.send({ status: "success" });
   } else {
