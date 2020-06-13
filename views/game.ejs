@@ -6,9 +6,9 @@
     <title>To Games Together - <%=game.title%></title>
   </head>
   <body>
-    <% let noteMax = 0; let nbAvis = 0; for (let avis of game.avis){ if
-    (avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
-    noteMax/nbAvis %>
+    <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
+    if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
+    noteMax/(nbAvis || 1) %>
     <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
       <img src="/img/games/<%=game.slug%>.png" alt="" />
       <h2><%=game.title%></h2>
