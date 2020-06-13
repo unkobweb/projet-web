@@ -1,0 +1,50 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+//Dimension
+$height: 60px;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 1080px; // A faire
+$large: 1400px; // A faire
+$xlargem: 1920px;
+
+body,
+html {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+#navbar {
+  background-color: $darkBlue;
+  display: flex;
+  align-items: center;
+  height: $height;
+  #logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      height: 30px;
+      margin-left: 10px;
+    }
+    h1 {
+      margin: 0;
+      color: white;
+      margin-left: 20px;
+    }
+  }
+  nav {
+    margin-left: auto;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      margin-right: 20px;
+    }
+  }
+}
