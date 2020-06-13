@@ -78,3 +78,14 @@ Plateform.create({
 });
 Plateform.create({
   name: "Playstation 4",
+  slug: "playstation_4",
+});
+Plateform.create({
+  name: "Switch",
+  slug: "switch",
+});
+Plateform.create({
+  name: "Xbox One",
+  slug: "xbox_one",
+});
+*/
