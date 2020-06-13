@@ -20,7 +20,10 @@ app.use(
   })
 );
 
-app.use(express.static(__dirname + "/public"));
+app.use(
+  express.static(__dirname + "/public/" + (process.env.STYLE || "simon"))
+);
+app.set("views", "./views/" + (process.env.STYLE || "simon") + "/");
 app.use(express.json());
 
 app.use("/", require("./routes/web"));
