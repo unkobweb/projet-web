@@ -44,8 +44,8 @@ async function login(req, res) {
     .signInWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
       let user = await User.findOne({
-        raw: true,
         where: { id: auth.currentUser.uid },
+        include: [{ model: Cart, include: [Game] }],
       });
       req.session.user = user;
     })
@@ -68,8 +68,8 @@ async function login(req, res) {
 
 async function externalConnexion(req, res) {
   let currentUser = await User.findOne({
-    raw: true,
     where: { id: req.body.id },
+    include: [{ model: Cart, include: [Game] }],
   });
   if (currentUser == null) {
     let newUser = await User.create({
