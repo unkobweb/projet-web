@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon panier</title>
+  </head>
+  <body>
+    <%session.Carts.forEach(jeu => {%>
+    <div>
+      <h2><%=jeu.Game.title%></h2>
+      <p>Quantité : <%=jeu.quantity%></p>
+    </div>
+    <%});%>
+  </body>
+</html>
