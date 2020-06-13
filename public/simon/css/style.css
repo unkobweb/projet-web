@@ -1,0 +1,298 @@
+html, body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #061539;
+}
+
+#login, #register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#login .top-container, #register .top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#login .top-container .previous-page, #register .top-container .previous-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 20px;
+  color: #E14544;
+  background: linear-gradient(145deg, #06163d, #051333);
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+}
+
+#login .top-container .tgt-logo, #register .top-container .tgt-logo {
+  width: 597px;
+  height: 417px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login .top-container .tgt-logo .logo, #register .top-container .tgt-logo .logo {
+  width: 497.5px;
+  height: 347.5px;
+}
+
+#login .top-container .forgot-pass, #register .top-container .forgot-pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-right: 30px;
+  font-size: 20px;
+  color: #E14544;
+  background: linear-gradient(145deg, #06163d, #051333);
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+}
+
+#login .top-container .empty, #register .top-container .empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+#login .return-message, #register .return-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container, #register .bot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#login .bot-container .media-glo, #register .bot-container .media-glo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+  margin: 100px;
+}
+
+#login .bot-container .media-glo .img-gl, #login .bot-container .media-glo .img-fb, #register .bot-container .media-glo .img-gl, #register .bot-container .media-glo .img-fb {
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
+}
+
+#login .bot-container .login-inputs, #register .bot-container .login-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .login-inputs .mail, #login .bot-container .login-inputs .passw, #register .bot-container .login-inputs .mail, #register .bot-container .login-inputs .passw {
+  font-family: Montserrat;
+  font-size: medium;
+  color: #E14544;
+}
+
+#login .bot-container .login-inputs .input-mail, #login .bot-container .login-inputs .input-pass, #register .bot-container .login-inputs .input-mail, #register .bot-container .login-inputs .input-pass {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .login-inputs .connect-button, #register .bot-container .login-inputs .connect-button {
+  color: #E14544;
+  width: 110px;
+  height: 50px;
+  font-family: Montserrat;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+}
+
+#login .bot-container .login-inputs ::placeholder, #register .bot-container .login-inputs ::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
+
+#login .bot-container .username-input, #register .bot-container .username-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#login .bot-container .username-input .username, #register .bot-container .username-input .username {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .username-input .inputU, #register .bot-container .username-input .inputU {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs, #register .bot-container .register-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .register-inputs .top-inputs, #register .bot-container .register-inputs .top-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .register-inputs .top-inputs .pass .passw, #register .bot-container .register-inputs .top-inputs .pass .passw {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .top-inputs .pass .passput, #register .bot-container .register-inputs .top-inputs .pass .passput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass, #register .bot-container .register-inputs .top-inputs .confpass {
+  margin-left: 30px;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass .confirm-password, #register .bot-container .register-inputs .top-inputs .confpass .confirm-password {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass .confpassput, #register .bot-container .register-inputs .top-inputs .confpass .confpassput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .mid-inputs, #register .bot-container .register-inputs .mid-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#login .bot-container .register-inputs .mid-inputs .mail .mailT, #register .bot-container .register-inputs .mid-inputs .mail .mailT {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .mid-inputs .mail .mailput, #register .bot-container .register-inputs .mid-inputs .mail .mailput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth, #register .bot-container .register-inputs .mid-inputs .birth {
+  margin-left: 30px;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth .date-of-birth, #register .bot-container .register-inputs .mid-inputs .birth .date-of-birth {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth .dateput, #register .bot-container .register-inputs .mid-inputs .birth .dateput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .bot-signup .signup, #register .bot-container .register-inputs .bot-signup .signup {
+  color: #E14544;
+  width: 110px;
+  height: 50px;
+  font-family: Montserrat;
+  margin-top: 200px;
+  margin-bottom: 60px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+}
