@@ -76,7 +76,11 @@ async function removeFromCart(req, res) {
 }
 
 function cart(req, res) {
-  res.render("cart.ejs", { session: req.session.user });
+  if (req.session.user) {
+    res.render("cart.ejs", { session: req.session.user });
+  } else {
+    res.redirect("/");
+  }
 }
 
 module.exports = { index, show, addToCart, cart };
