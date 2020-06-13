@@ -1,4 +1,6 @@
-const User = require("../models/User");
+const User = require("../models/").User;
+const Cart = require("../models").Cart;
+const Game = require("../models").Game;
 
 async function register(req, res) {
   let request = req.body;
