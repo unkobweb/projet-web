@@ -1,0 +1,40 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 1080px; // A faire
+$large: 1400px; // A faire
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+
+#jeux {
+  display: flex;
+  flex-direction: row;
+
+  .jeu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+
+    .pochette {
+      position: absolute;
+      z-index: 1;
+    }
+    .plateformLogo {
+      position: absolute;
+      z-index: 2;
+      margin-left: 100%;
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
