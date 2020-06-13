@@ -2,16 +2,8 @@
 const express = require("express");
 const session = require("express-session");
 
-// Database
-require("./config/database");
 //Firebase
 require("./config/authentication");
-
-// Test DB connection
-sequelize
-  .authenticate()
-  .then(() => console.log("Database connected.."))
-  .catch((err) => console.log("DB Error : " + err));
 
 const app = express();
 app.use(
