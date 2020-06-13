@@ -83,4 +83,4 @@ function cart(req, res) {
   }
 }
 
-module.exports = { index, show, addToCart, cart };
+module.exports = { index, show, addToCart, removeFromCart, cart };
