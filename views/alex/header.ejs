@@ -1,0 +1,19 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+  rel="stylesheet"
+/>
+<link href="/css/dist/header.css" rel="stylesheet" />
+<div id="navbar">
+  <div id="logo">
+    <img src="/img/logo/togames-together.png" alt="logo" />
+    <h1>TO GAMES TOGETHER</h1>
+  </div>
+  <nav>
+    <% if (session == undefined) {%>
+    <a href="/login">connexion</a>
+    <a href="/register">inscription</a>
+    <% } else { %>
+    <a href="#">mon compte</a>
+    <%}%>
+  </nav>
+</div>
