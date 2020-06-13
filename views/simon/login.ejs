@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/a96fd4f5ef.js" crossorigin="anonymous"></script>
+    <title>Connexion</title>
+  </head>
+  <body>
+    <form id='login'>
+
+      <div class="top-container">
+        <div class="previous-page">
+          <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="tgt-logo">
+          <img class='logo' src='/img/logo/togames-together.png'/>
+        </div>
+        <div class="forgot-pass">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+  
+      <div class="return-message" v-if='message'>
+        <h2 class="ret-message"> {{ message }}</h2>
+      </div>
+  
+      <div class="bot-container">
+
+        <div class="media-glo">
+          <img class='img-gl'
+          src="/img/media/google-96.svg"
+          @click="externalLogin('this.googleProvider')"
+          />
+          <img class='img-fb'
+          src="/img/media/facebook-96.svg"
+          @click="externalLogin('this.facebookProvider')"
+          />
+        </div>
+        
+        <div class="login-inputs">
+          <h3 class="mail">E-MAIL</h3>
+          <input class='input-mail' type="email" v-model="mail" placeholder="Adresse mail" />
+          <h3 class="passw">PASSWORD</h3>
+          <input class='input-pass' type="password" v-model="password" placeholder="Mot de passe" />
+          <input class='connect-button' type="button" value="LOG IN" @click="login" />
+        </div>
+      </div>
+
+    </form>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="/js/login.js"></script>
+</html>

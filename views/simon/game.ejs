@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Games Together - <%=game.title%></title>
+  </head>
+  <body>
+    <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
+    if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
+    noteMax/(nbAvis || 1) %>
+    <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
+      <img src="/img/games/<%=game.slug%>.png" alt="" />
+      <h2><%=game.title%></h2>
+      <h4><%=game.price%></h4>
+      <h5><%=game.quantity%> jeux restants</h5>
+      <button :disabled="quantity <= 0" @click="buy">Acheter</button>
+      <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
+      <%game.Marks.forEach(avis => {%>
+      <p><%=JSON.stringify(avis)%></p>
+      <%});%>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/game.js"></script>
+  </body>
+</html>

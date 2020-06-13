@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Games Together</title>
+  </head>
+  <body>
+    <%if (session != undefined){%>
+    <h2><%=JSON.stringify(session)%></h2>
+    <p>Vous avez <%=session.Carts.length%> articles dans votre panier</p>
+    <%}%> <%games.forEach(game => {%>
+    <div>
+      <img src="/img/games/<%=game.slug%>.png" />
+      <h2><%= game.title%> - <%= game.Plateform.name%></h2>
+      <p>
+        <%= game.description.length <= 200 ? game.description :
+        game.description.substring(0,196)+"..."%>
+      </p>
+      <h4>
+        Prix <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%> €
+        -<%=game.discount%>%
+      </h4>
+    </div>
+    <%});%>
+  </body>
+</html>
