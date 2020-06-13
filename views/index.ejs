@@ -8,6 +8,7 @@
   <body>
     <%if (session != undefined){%>
     <h2><%=JSON.stringify(session)%></h2>
+    <p>Vous avez <%=session.Carts.length%> articles dans votre panier</p>
     <%}%> <%games.forEach(game => {%>
     <div>
       <img src="/img/games/<%=game.slug%>.png" />
