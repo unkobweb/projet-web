@@ -23,8 +23,8 @@ async function index(req, res) {
 async function show(req, res) {
   let game = await Game.findOne({
     include: [
-      { model: Plateform, as: "Plateform" },
-      { model: Mark, as: "avis", include: [{ model: User, as: "author" }] },
+      { model: Plateform },
+      { model: Mark, include: [{ model: User }] },
     ],
     where: { id: req.params.id },
   });
