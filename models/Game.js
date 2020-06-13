@@ -1,38 +1,23 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database");
-
-const Game = db.define(
-  "games",
-  {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const Game = sequelize.define(
+    "Game",
+    {
+      title: DataTypes.STRING,
+      description: DataTypes.TEXT,
+      slug: DataTypes.STRING,
+      quantity: DataTypes.INTEGER,
+      price: DataTypes.FLOAT,
+      discount: DataTypes.INTEGER,
+      plateform_id: DataTypes.INTEGER,
     },
-    title: {
-      type: Sequelize.STRING,
-    },
-    description: {
-      type: Sequelize.STRING,
-    },
-    slug: {
-      type: Sequelize.STRING,
-    },
-    quantity: {
-      type: Sequelize.INTEGER,
-    },
-    price: {
-      type: Sequelize.FLOAT,
-    },
-    discount: {
-      type: Sequelize.INTEGER,
-    },
-    plateform_id: {
-      type: Sequelize.INTEGER,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-
-module.exports = Game;
+    {}
+  );
+  Game.associate = function (models) {
+    // associations can be defined here
+    Game.hasMany(models.Cart, { foreignKey: "gameId" });
+    Game.hasMany(models.Mark, { foreignKey: "gameId" });
+    Game.belongsTo(models.Plateform, { foreignKey: "plateform_id" });
+  };
+  return Game;
+};
