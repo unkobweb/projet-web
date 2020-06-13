@@ -89,14 +89,14 @@ function indexLogin(req, res) {
   if (req.session.user != undefined) {
     res.redirect("/");
   }
-  res.render("../views/login.ejs");
+  res.render("login.ejs");
 }
 
 function indexRegister(req, res) {
   if (req.session.user != undefined) {
     res.redirect("/");
   }
-  res.render("../views/register.ejs");
+  res.render("register.ejs");
 }
 
 function disconnect(req, res) {

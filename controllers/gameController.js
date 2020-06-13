@@ -26,7 +26,9 @@ async function show(req, res) {
     ],
     where: { id: req.params.id },
   });
-  res.render("game.ejs", { game: game });
+  res.render("game.ejs", {
+    game: game,
+  });
 }
 
 async function addToCart(req, res) {
@@ -77,7 +79,9 @@ async function removeFromCart(req, res) {
 
 function cart(req, res) {
   if (req.session.user) {
-    res.render("cart.ejs", { session: req.session.user });
+    res.render("cart.ejs", {
+      session: req.session.user,
+    });
   } else {
     res.redirect("/");
   }
