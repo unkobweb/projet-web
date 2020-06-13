@@ -1,15 +1,8 @@
-const User = require("../models/User");
-const Game = require("../models/Game");
-const CdKey = require("../models/CdKey");
-const Mark = require("../models/Mark");
-const Order = require("../models/Order");
-const Plateform = require("../models/Plateform");
-const Product = require("../models/Product");
-const Cart = require("../models/Cart");
-
-Game.belongsTo(Plateform, { as: "Plateform", foreignKey: "plateform_id" });
-Game.hasMany(Mark, { as: "avis", foreignKey: "game_id" });
-Mark.belongsTo(User, { as: "author", foreignKey: "user_id" });
+const User = require("../models").User;
+const Game = require("../models").Game;
+const Mark = require("../models").Mark;
+const Plateform = require("../models").Plateform;
+const Cart = require("../models").Cart;
 
 async function index(req, res) {
   //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
