@@ -3,8 +3,8 @@
 const cdkey = require("./cdkey");
 
 module.exports = (sequelize, DataTypes) => {
-  const product = sequelize.define(
-    "product",
+  const Product = sequelize.define(
+    "Product",
     {
       orderId: DataTypes.INTEGER,
       gameId: DataTypes.INTEGER,
@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  product.associate = function (models) {
+  Product.associate = function (models) {
     // associations can be defined here
-    product.belongsTo(models.Cdkey, { foreignKey: "keyId" });
-    product.belongsTo(models.Game, { foreignKey: "gameId" });
+    Product.belongsTo(models.CdKey, { foreignKey: "keyId" });
+    Product.belongsTo(models.Game, { foreignKey: "gameId" });
   };
-  return product;
+  return Product;
 };
