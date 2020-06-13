@@ -15,6 +15,7 @@ async function register(req, res) {
         date_of_birth: request.date,
       });
       req.session.user = newUser.dataValues;
+      req.session.user.Carts = [];
     })
     .catch((err) => {
       console.log(err);
@@ -77,6 +78,7 @@ async function externalConnexion(req, res) {
       email: req.body.mail,
     });
     req.session.user = newUser.dataValues;
+    req.session.user.Carts = [];
   } else {
     req.session.user = currentUser;
   }
