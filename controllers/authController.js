@@ -6,13 +6,12 @@ async function register(req, res) {
   await auth
     .createUserWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
-      let newUser = await User.build({
+      let newUser = await User.create({
         id: auth.currentUser.uid,
         username: request.username,
         email: request.mail,
         date_of_birth: request.date,
       });
-      await newUser.save();
       req.session.user = newUser.dataValues;
     })
     .catch((err) => {
@@ -70,12 +69,11 @@ async function externalConnexion(req, res) {
     where: { id: req.body.id },
   });
   if (currentUser == null) {
-    let newUser = await User.build({
+    let newUser = await User.create({
       id: req.body.id,
       username: req.body.name,
       email: req.body.mail,
     });
-    await newUser.save();
     req.session.user = newUser.dataValues;
   } else {
     req.session.user = currentUser;
