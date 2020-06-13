@@ -16,5 +16,6 @@ router.get("/game/:id", gameController.show);
 router.get("/disconnect", authController.disconnect);
 router.post("/buy/:id", gameController.addToCart);
 router.get("/cart", gameController.cart);
+router.post("/removeFromCart/:id", gameController.removeFromCart);
 
 module.exports = router;
