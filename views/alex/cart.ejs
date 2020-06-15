@@ -3,21 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/cart.css" rel="stylesheet" />
     <title>Mon panier</title>
   </head>
   <body>
+    <%- include('header.ejs') %>
     <div id="cart">
-      <%session.Carts.forEach(jeu => {%>
-      <div>
-        <h2>
-          <%=jeu.Game.title%>
-          <button @click="removeProduct(<%=jeu.id%>)">
-            Supprimer
-          </button>
-        </h2>
-        <p>Quantité : <%=jeu.quantity%></p>
+      <h1>Mon <i class="fas fa-shopping-cart"></i> panier</h1>
+      <div id="articles">
+        <table>
+          <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Plateforme</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          <%session.Carts.forEach(jeu => {%>
+          <tr>
+            <td>
+              <img
+                src="/img/games/<%=jeu.Game.slug%>.jpg"
+                alt="<%=jeu.Game.slug%>"
+              /><span><%=jeu.Game.title%></span>
+            </td>
+            <td>
+              <%=(jeu.Game.price-(jeu.Game.price*(jeu.Game.discount/100))).toFixed(2)%>€
+            </td>
+            <td>
+              <div>
+                <img
+                  src="/img/plateforms/<%=jeu.Game.Plateform.slug%>_logo.png"
+                  alt=""
+                  class="plateformLogo"
+                />
+                <span><%=jeu.Game.Plateform.name%></span>
+              </div>
+            </td>
+            <td><%=jeu.quantity%></td>
+            <td>
+              <%=(jeu.Game.price-(jeu.Game.price*(jeu.Game.discount/100))).toFixed(2)*jeu.quantity%>€
+            </td>
+            <td>
+              <i class="fas fa-times" @click="removeProduct(<%=jeu.id%>)"></i>
+            </td>
+          </tr>
+          <%});%>
+        </table>
       </div>
-      <%});%>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/cart.js"></script>
