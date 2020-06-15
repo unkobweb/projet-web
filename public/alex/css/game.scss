@@ -1,0 +1,126 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 645px;
+$medium: 920px; // A faire
+$large: 1400px; // A faire
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+
+#game {
+  background-color: $purple;
+  width: 780px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  border-radius: 4px;
+
+  #info {
+    margin-left: 20px;
+    color: white;
+
+    #firstPrice {
+      color: lightgray;
+      text-decoration: line-through;
+    }
+    #plateform {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-weight: bold;
+      #plateformLogo {
+        max-width: 25px;
+        max-height: 25px;
+        margin-right: 10px;
+      }
+    }
+    #discount {
+      background-color: $pink;
+      padding: 5px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    .addToCart {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      background-color: $pink;
+      color: white;
+      padding: 7px;
+      width: 60%;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .addToCart.disabled {
+      background-color: dimgray;
+      color: lightgrey;
+      cursor: not-allowed;
+    }
+  }
+}
+#desc {
+  width: 780px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: $purple;
+  color: white;
+  h2 {
+    margin-top: 0;
+  }
+}
+#marks {
+  width: 780px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: $purple;
+  color: white;
+}
+
+@media screen and (max-width: $medium) {
+  #game,
+  #desc,
+  #marks {
+    width: 90%;
+  }
+  #game {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: $small) {
+  #game {
+    display: flex;
+    flex-direction: column;
+    div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    div:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  #game,
+  #desc,
+  #marks {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  body {
+    padding-bottom: 70px;
+  }
+}
