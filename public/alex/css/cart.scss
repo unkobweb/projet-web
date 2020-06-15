@@ -1,0 +1,126 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 920px;
+$large: 1590px;
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+
+#cart {
+  color: white;
+  h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  #articles {
+    background-color: $purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+    border-radius: 3px;
+    .fa-times {
+      color: #e74c3c;
+      cursor: pointer;
+    }
+    img {
+      max-height: 125px;
+    }
+    table {
+      width: 100%;
+    }
+    tr {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+
+      th {
+        display: flex;
+        flex: 5;
+        border-bottom: 1px solid white;
+        padding-left: 15px;
+        padding-bottom: 5px;
+      }
+      th:last-child {
+        flex: 1;
+        border-bottom: none;
+      }
+      td {
+        flex: 5;
+        padding-left: 15px;
+        height: 150px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 1px solid white;
+
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .plateformLogo {
+            max-height: 20px;
+            max-width: 20px;
+          }
+        }
+
+        span {
+          margin-left: 10px;
+        }
+      }
+      td:last-child {
+        flex: 1;
+        border-bottom: none;
+      }
+      @media screen and (max-width: $large) {
+        td:first-child {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+
+          span {
+            margin-left: 0;
+          }
+        }
+        td:nth-child(3) div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      @media screen and (max-width: $medium) {
+        td:first-child img {
+          max-height: 70px;
+        }
+        td:first-child span {
+          font-size: 14px;
+        }
+        td:nth-child(3) div span {
+          display: none;
+        }
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+}
