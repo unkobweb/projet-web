@@ -51,7 +51,9 @@ async function addToCart(req, res) {
     }
     let userWithNewCart = await User.findOne({
       where: { id: req.session.user.id },
-      include: [{ model: Cart, include: [Game] }],
+      include: [
+        { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+      ],
     });
     req.session.user = userWithNewCart.dataValues;
     res.send({ status: "success" });
