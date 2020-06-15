@@ -3,23 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/game.css" rel="stylesheet" />
     <title>To Games Together - <%=game.title%></title>
   </head>
   <body>
-    <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
-    if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
-    noteMax/(nbAvis || 1) %>
+    <%- include('header.ejs') %> <% let noteMax = 0; let nbAvis = 0; for (let
+    avis of game.Marks){ if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } }
+    let moyenne = noteMax/(nbAvis || 1) %>
     <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
-      <img src="/img/games/<%=game.slug%>.png" alt="" />
-      <h2><%=game.title%></h2>
-      <h4><%=game.price%></h4>
-      <h5><%=game.quantity%> jeux restants</h5>
-      <button :disabled="quantity <= 0" @click="buy">Acheter</button>
-      <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
-      <%game.Marks.forEach(avis => {%>
-      <p><%=JSON.stringify(avis)%></p>
-      <%});%>
+      <div>
+        <img src="/img/games/<%=game.slug%>.jpg" alt="<%=game.slug%>" />
+      </div>
+      <div id="info">
+        <h2><%=game.title%></h2>
+        <div id="plateform">
+          <img src="/img/plateforms/<%=game.Plateform.slug%>_logo.png" id="plateformLogo"><span><%=game.Plateform.name%></span>
+          </div>
+        
+        <p>
+          <span id="firstPrice"><%=game.price%>€</span>
+          <span id="discount">-<%=game.discount%>%</span>
+        </p>
+        <p>
+          Prix : <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%>€
+        </p>
+        <h5><%=game.quantity > 0 ? game.quantity+" jeux restants" : "Rupture de stock !"%></h5>
+        <div class="addToCart <%=game.quantity < 1 ? "disabled" : ""%>" @click="buy">
+          <i class="fas fa-cart-plus"></i><span>Ajouter au panier</span>
+        </div>
+        <h2>
+          Avis moyens : <%=nbAvis > 0 ? moyenne+"/5 ("+nbAvis+" avis)":"Aucun "+
+          "avis" %>
+        </h2>
+      </div>
     </div>
+    <div id="desc">
+      <h2>Description</h2>
+      <p><%=game.description%></p>
+    </div>
+
+    <%if (game.Marks.length > 0) {%>
+      <div id="marks">
+        <h2><%=game.Marks.length%> Avis</h2>
+        <%game.Marks.forEach(avis => {%>
+          <p><%=JSON.stringify(avis)%></p>
+        <%});%>
+      </div>
+    <%}%>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/game.js"></script>
   </body>
