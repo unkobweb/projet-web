@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/profile.css" rel="stylesheet" />
+    <title>Mon profil</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div id="profil">
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" name="username" value="<%=session.username%>" />
+      <label for="mail">Adresse mail</label>
+      <input type="text" name="mail" value="<%=session.email%>" disabled />
+      <label for="birthdate" value="<%=session.date_of_birth%>"
+        >Date de naissance</label
+      >
+      <input type="date" name="birthdate" />
+      <p>Votre solde : <%=session.balance%> €</p>
+    </div>
+  </body>
+</html>
