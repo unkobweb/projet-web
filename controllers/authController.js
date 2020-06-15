@@ -94,14 +94,20 @@ function indexLogin(req, res) {
   if (req.session.user != undefined) {
     res.redirect("/");
   }
-  res.render("login.ejs");
+  res.render("login.ejs", {
+    session: req.session.user,
+    nbPage: 2,
+  });
 }
 
 function indexRegister(req, res) {
   if (req.session.user != undefined) {
     res.redirect("/");
   }
-  res.render("register.ejs");
+  res.render("register.ejs", {
+    session: req.session.user,
+    nbPage: 3,
+  });
 }
 
 function disconnect(req, res) {

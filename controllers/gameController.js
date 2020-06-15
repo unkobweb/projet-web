@@ -15,6 +15,7 @@ async function index(req, res) {
   res.render("index.ejs", {
     games: games,
     session: req.session.user,
+    nbPage: 1,
   });
 }
 
@@ -28,6 +29,8 @@ async function show(req, res) {
   });
   res.render("game.ejs", {
     game: game,
+    session: req.session.user,
+    nbPage: 0,
   });
 }
 
@@ -81,6 +84,7 @@ function cart(req, res) {
   if (req.session.user) {
     res.render("cart.ejs", {
       session: req.session.user,
+      nbPage: 4,
     });
   } else {
     res.redirect("/");
