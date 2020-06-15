@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const gameController = require("../controllers/gameController");
 const authController = require("../controllers/authController");
+const profileController = require("../controllers/profileController");
 
 router.use("/", (req, res, next) => {
   req.session.style = process.env.STYLE || "simon";
@@ -23,5 +24,6 @@ router.get("/disconnect", authController.disconnect);
 router.post("/buy/:id", gameController.addToCart);
 router.get("/cart", gameController.cart);
 router.post("/removeFromCart/:id", gameController.removeFromCart);
+router.get("/profile", profileController.index);
 
 module.exports = router;
