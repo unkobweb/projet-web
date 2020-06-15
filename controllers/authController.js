@@ -1,6 +1,7 @@
 const User = require("../models/").User;
 const Cart = require("../models").Cart;
 const Game = require("../models").Game;
+const Plateform = require("../models").Plateform;
 
 async function register(req, res) {
   let request = req.body;
@@ -45,7 +46,9 @@ async function login(req, res) {
     .then(async () => {
       let user = await User.findOne({
         where: { id: auth.currentUser.uid },
-        include: [{ model: Cart, include: [Game] }],
+        include: [
+          { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+        ],
       });
       req.session.user = user;
     })
@@ -69,7 +72,9 @@ async function login(req, res) {
 async function externalConnexion(req, res) {
   let currentUser = await User.findOne({
     where: { id: req.body.id },
-    include: [{ model: Cart, include: [Game] }],
+    include: [
+      { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+    ],
   });
   if (currentUser == null) {
     let newUser = await User.create({
