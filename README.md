@@ -1,5 +1,5 @@
 # TO GAMES TOGETHER
-<p align="center"><img src="https://zupimages.net/viewer.php?id=20/25/u5cl.png" width="400"></p>
+<p align="center"><img src="https://zupimages.net/up/20/25/u5cl.png" width="400"></p>
 
 To games together est un site web e-commerce proposant des jeux a des prix extrêmement compétitifs, avec son style année 80 et ces dernières nouveautés, il saura mettre d'accord les jeunes comme les vieux gamers.
 
