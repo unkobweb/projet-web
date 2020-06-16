@@ -9,6 +9,7 @@
   <body>
     <%- include('header.ejs') %>
     <div id="cart">
+      <% let total = 0%>
       <h1>Mon <i class="fas fa-shopping-cart"></i> panier</h1>
       <div id="articles">
         <table>
@@ -29,6 +30,8 @@
               /><span><%=jeu.Game.title%></span>
             </td>
             <td>
+              <% total +=
+              parseFloat((jeu.Game.price-(jeu.Game.price*(jeu.Game.discount/100))).toFixed(2)*jeu.quantity)%>
               <%=(jeu.Game.price-(jeu.Game.price*(jeu.Game.discount/100))).toFixed(2)%>€
             </td>
             <td>
@@ -51,6 +54,12 @@
           </tr>
           <%});%>
         </table>
+      </div>
+      <div id="total">
+        <p>Total : <%=total%> €</p>
+        <a id="buy" href="/checkout">
+          <span>Acheter</span><i class="fas fa-shopping-basket"></i>
+        </a>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
