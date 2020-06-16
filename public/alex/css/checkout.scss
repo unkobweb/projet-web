@@ -1,0 +1,78 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 920px;
+$large: 1590px;
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#checkout {
+  margin: auto;
+  width: 400px;
+  background-color: $purple;
+  padding: 25px;
+  border-radius: 10px;
+
+  label {
+    font-size: 30px;
+  }
+
+  #card-element {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    background-color: $pink;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 24px;
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
