@@ -17,12 +17,31 @@ $xlargem: 1920px;
 body,
 html {
   margin: 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: Monospace, sans-serif;
+}
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+input::placeholder,
+input[type="date"] {
+  color: white;
 }
 #logoUpPage {
   display: none;
 }
 #navbar {
+  z-index: 5;
   background-color: $darkBlue;
   display: flex;
   align-items: center;
