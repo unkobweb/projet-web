@@ -7,13 +7,28 @@ const Cart = require("../models").Cart;
 async function index(req, res) {
   //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
 
-  let games = await Game.findAll({
+  let gamesDiscount = await Game.findAll({
     raw: true,
     nest: true,
     include: [{ model: Plateform, as: "Plateform" }],
+    order: [
+      ["discount", "DESC"],
+      ["id", "DESC"],
+    ],
+    limit: 6,
+    offset: 0,
+  });
+  let gamesDate = await Game.findAll({
+    raw: true,
+    nest: true,
+    include: [{ model: Plateform, as: "Plateform" }],
+    order: [["id", "DESC"]],
+    limit: 6,
+    offset: 0,
   });
   res.render("index.ejs", {
-    games: games,
+    gamesDiscount: gamesDiscount,
+    gamesDate: gamesDate,
     session: req.session.user,
     nbPage: 1,
   });
@@ -73,7 +88,9 @@ async function removeFromCart(req, res) {
     await cart.destroy();
     let userWithNewCart = await User.findOne({
       where: { id: req.session.user.id },
-      include: [{ model: Cart, include: [Game] }],
+      include: [
+        { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+      ],
     });
     req.session.user = userWithNewCart.dataValues;
     res.sendStatus(200);
