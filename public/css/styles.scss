@@ -1,6 +1,6 @@
 // Values
 $logo-width: 199px;
-$logo-height: 139px;
+$logo-height: 417px;
 // Colors
 $fond: #061539;
 $fond-linear: linear-gradient(145deg, #06163d, #051333);
@@ -27,7 +27,6 @@ flex-wrap: nowrap;
 flex-direction: column;
 
     .return-message {
-        size: 500px;
         font-family: Montserrat;
         color: $orange;
     }
@@ -41,6 +40,7 @@ flex-direction: column;
         display: flex;
         justify-content: center;
         align-items: center;
+        justify-items: center;
         flex-direction: column;
         width: 60%;
 
