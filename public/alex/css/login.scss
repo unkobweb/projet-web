@@ -14,79 +14,89 @@ $xlargem: 1920px;
 body {
   background-color: $blue;
 }
-.inputs {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: auto;
-  margin-top: 50px;
-  h1 {
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  label {
-    text-transform: uppercase;
-    color: white;
-    font-size: 25px;
-  }
-  input {
-    display: block;
-    margin: 20px 0px;
-    padding: 10px;
-    background-color: $darkBlue;
-    border: 2px solid $pink;
-
-    &:focus {
-      outline: none;
-    }
-  }
-  button {
-    height: 25px;
-    margin: auto;
-    margin-top: 20px;
-    color: white;
-    background-color: #7045af;
-    border: none;
-    &:focus {
-      outline: none;
-    }
-  }
-  #message {
-    background-color: $purple;
-    padding: 8px 28px;
-    margin: auto;
-    border-radius: 20px;
-    h2 {
-      text-align: center;
-      color: white;
-    }
-  }
-  #media {
+#login {
+  .inputs {
     display: flex;
-    flex-direction: row;
-    font-size: 40px;
+    flex-direction: column;
+    width: 400px;
     margin: auto;
-    .media_button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: $pink;
-      width: 80px;
-      height: 80px;
-      text-align: center;
-      margin: 0 20px;
-      border-radius: 70px;
+    margin-top: 50px;
+    h1 {
       color: white;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    label {
+      text-transform: uppercase;
+      color: white;
+      font-size: 25px;
+    }
+    input {
+      display: block;
+      margin: 20px 0px;
+      padding: 10px;
+      background-color: $darkBlue;
+      border: 2px solid $pink;
+      color: white;
+      font-family: monospace, sans-serif;
 
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      margin: auto;
+      margin-top: 20px;
+      color: white;
+      background-color: rgba(112, 69, 175, 0.5);
+      padding: 15px;
+      border: none;
+      border-radius: 20px;
+      font-family: monospace, sans-serif;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+      }
       &:hover {
         cursor: pointer;
       }
     }
+    #message {
+      background-color: $purple;
+      padding: 8px 28px;
+      margin: auto;
+      border-radius: 20px;
+      h2 {
+        text-align: center;
+        color: white;
+      }
+    }
+    #media {
+      display: flex;
+      flex-direction: row;
+      font-size: 40px;
+      margin: auto;
+      .media_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $pink;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        margin: 0 20px;
+        border-radius: 70px;
+        color: white;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
-}
-@media screen and (max-width: $small) {
-  .inputs {
-    width: 80%;
+  @media screen and (max-width: $small) {
+    .inputs {
+      width: 80%;
+    }
   }
 }
