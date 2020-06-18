@@ -1,4 +1,7 @@
-const User = require("../models/User");
+const User = require("../models/").User;
+const Cart = require("../models").Cart;
+const Game = require("../models").Game;
+const Plateform = require("../models").Plateform;
 
 async function register(req, res) {
   let request = req.body;
@@ -6,13 +9,14 @@ async function register(req, res) {
   await auth
     .createUserWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
-      console.log(auth.currentUser.uid);
-      let newUser = await User.build({
+      let newUser = await User.create({
         id: auth.currentUser.uid,
         username: request.username,
         email: request.mail,
+        date_of_birth: request.date,
       });
-      await newUser.save();
+      req.session.user = newUser.dataValues;
+      req.session.user.Carts = [];
     })
     .catch((err) => {
       console.log(err);
@@ -32,13 +36,21 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
   let request = req.body;
   let error = false;
-  console.log("oui");
   await auth
     .signInWithEmailAndPassword(request.mail, request.password)
     .then(async () => {
-      console.log(auth.currentUser.uid);
+      let user = await User.findOne({
+        where: { id: auth.currentUser.uid },
+        include: [
+          { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+        ],
+      });
+      req.session.user = user;
     })
     .catch((err) => {
       console.log(err);
@@ -58,24 +70,49 @@ async function login(req, res) {
 }
 
 async function externalConnexion(req, res) {
-  let currentUser = await User.findOne({ where: { id: req.body.id } });
+  let currentUser = await User.findOne({
+    where: { id: req.body.id },
+    include: [
+      { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+    ],
+  });
   if (currentUser == null) {
-    let newUser = await User.build({
+    let newUser = await User.create({
       id: req.body.id,
       username: req.body.name,
       email: req.body.mail,
     });
-    await newUser.save();
+    req.session.user = newUser.dataValues;
+    req.session.user.Carts = [];
+  } else {
+    req.session.user = currentUser;
   }
   res.send(200);
 }
 
 function indexLogin(req, res) {
-  res.render("../views/login.ejs");
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
+  res.render("login.ejs", {
+    session: req.session.user,
+    nbPage: 2,
+  });
 }
 
 function indexRegister(req, res) {
-  res.render("../views/register.ejs");
+  if (req.session.user != undefined) {
+    res.redirect("/");
+  }
+  res.render("register.ejs", {
+    session: req.session.user,
+    nbPage: 3,
+  });
+}
+
+function disconnect(req, res) {
+  req.session.user = undefined;
+  res.redirect("/login");
 }
 
 module.exports = {
@@ -84,4 +121,5 @@ module.exports = {
   externalConnexion,
   login,
   indexLogin,
+  disconnect,
 };

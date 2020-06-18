@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/index.css" rel="stylesheet" />
+    <title>To Games Together</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div id="homepage">
+      <h1 class="category">Nouveautés</h1>
+      <div class="jeux">
+        <%games.forEach(game => {%>
+        <div class="jeu" @click="goToGame(<%=game.id%>)">
+          <img src="/img/games/<%=game.slug%>.jpg" class="pochette" />
+          <img
+            src="/img/plateforms/<%=game.Plateform.slug%>_logo.png"
+            alt="<%=game.Plateform.slug%>"
+            class="plateformLogo"
+          />
+          <h2>
+            <%= game.title%> <span class="discount">-<%=game.discount%>%</span>
+          </h2>
+          <h4>
+            <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%> €
+          </h4>
+        </div>
+        <%});%>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

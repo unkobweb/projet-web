@@ -1,0 +1,43 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+  rel="stylesheet"
+/>
+<script
+  src="https://kit.fontawesome.com/a96fd4f5ef.js"
+  crossorigin="anonymous"
+></script>
+<link href="/css/dist/header.css" rel="stylesheet" />
+<img src="/img/logo/togames-together.png" alt="" id="logoUpPage">
+<div id="navbar">
+  <div id="logo">
+    <img src="/img/logo/togames-together.png" alt="logo" />
+    <h1>TO GAMES TOGETHER</h1>
+  </div>
+  <nav>
+    <a href="/" class="<%=nbPage == 1 ? "active" : ""%>"><i class="fas fa-gamepad"></i> jeux</a>
+    <% if (session == undefined) {%>
+    <a href="/login" class="<%=nbPage == 2 ? "active" : ""%>"
+      ><i class="fas fa-user-friends"></i> <span>connexion</span></a
+    >
+    <a href="/register" class="<%=nbPage == 3 ? "active" : ""%>"
+      ><i class="fas fa-user-plus"></i> <span>inscription</span></a
+    >
+    <% } else { %>
+    <a href="/cart" class="<%=nbPage == 4 ? "active" : ""%>"
+      ><i class="fas fa-shopping-cart"></i>
+      <span
+        >panier<%=session.Carts.length > 0 ? " ("+session.Carts.length+")" : ""
+        %></span
+      ></a
+    >
+    <a href="#" class="<%=nbPage == 5 ? "active" : ""%>"><i class="fas fa-money-bill-alt"></i> <span>mes achats</span></a>
+    <a href="/profile" class="<%=nbPage == 6 ? "active" : ""%>"><i class="fas fa-user"></i> <span>profil</span></a>
+    <%}%>
+  </nav>
+</div>
+<script>
+  let logo = document.querySelector("#logo");
+  logo.addEventListener("click", () => {
+    window.location.href = "/";
+  });
+</script>

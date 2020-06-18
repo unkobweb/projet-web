@@ -1,19 +1,16 @@
-const Sequelize = require("sequelize");
-
-const Plateform = sequelize.define(
-  "plateform",
-  {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const Plateform = sequelize.define(
+    "Plateform",
+    {
+      name: DataTypes.STRING,
+      slug: DataTypes.STRING,
     },
-    name: {
-      type: Sequelize.STRING,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-
-module.exports = Plateform;
+    {}
+  );
+  Plateform.associate = function (models) {
+    // associations can be defined here
+    Plateform.hasMany(models.Game, { foreignKey: "plateform_id" });
+  };
+  return Plateform;
+};

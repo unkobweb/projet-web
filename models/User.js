@@ -1,27 +1,23 @@
-const Sequelize = require("sequelize");
-
-const User = sequelize.define(
-  "user",
-  {
-    id: {
-      type: Sequelize.STRING,
-      primaryKey: true,
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define(
+    "User",
+    {
+      id: {
+        primaryKey: true,
+        type: DataTypes.STRING,
+      },
+      username: DataTypes.STRING,
+      email: DataTypes.STRING,
+      date_of_birth: DataTypes.DATEONLY,
+      balance: DataTypes.FLOAT,
     },
-    username: {
-      type: Sequelize.STRING,
-    },
-    email: {
-      type: Sequelize.STRING,
-    },
-    date_of_birth: {
-      type: Sequelize.DATEONLY,
-    },
-    balance: {
-      type: Sequelize.FLOAT,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-module.exports = User;
+    {}
+  );
+  User.associate = function (models) {
+    // associations can be defined here
+    User.hasMany(models.Cart, { foreignKey: "userId" });
+    User.hasMany(models.Mark, { foreignKey: "userId" });
+  };
+  return User;
+};

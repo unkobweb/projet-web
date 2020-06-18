@@ -1,28 +1,19 @@
-const Sequelize = require("sequelize");
-
-const Mark = sequelize.define(
-  "mark",
-  {
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const Mark = sequelize.define(
+    "Mark",
+    {
+      userId: DataTypes.STRING,
+      gameId: DataTypes.INTEGER,
+      mark: DataTypes.INTEGER,
+      review: DataTypes.TEXT,
     },
-    user_id: {
-      type: Sequelize.STRING,
-    },
-    game_id: {
-      type: Sequelize.INTEGER,
-    },
-    mark: {
-      type: Sequelize.INTEGER,
-    },
-    review: {
-      type: Sequelize.STRING,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-
-module.exports = Mark;
+    {}
+  );
+  Mark.associate = function (models) {
+    // associations can be defined here
+    Mark.belongsTo(models.User, { foreignKey: "userId" });
+    Mark.belongsTo(models.Game, { foreignKey: "gameId" });
+  };
+  return Mark;
+};

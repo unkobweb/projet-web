@@ -1,0 +1,43 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+body {
+  background-color: $blue;
+}
+#profil {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: auto;
+  color: white;
+  text-align: center;
+  h2 {
+    font-size: 40px;
+  }
+  label,
+  p {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  label:first-child {
+    margin-top: 24px;
+  }
+  input {
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding: 10px;
+    width: 100%;
+    background-color: $darkBlue;
+    border: 2px solid $pink;
+    color: white;
+    &:disabled {
+      color: lightgray;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

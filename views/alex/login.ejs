@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/login.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/a96fd4f5ef.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Connexion</title>
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <div id="login">
+        <div class="inputs">
+          <h1>connexion</h1>
+          <div id="message" v-if="message">
+            <h2>{{ message }}</h2>
+          </div>
+          <label for="mail">Adresse mail</label>
+          <input
+            name="mail"
+            type="email"
+            v-model="mail"
+            placeholder="Adresse mail"
+          />
+          <label for="pass">Mot de passe</label>
+          <input
+            name="pass"
+            type="password"
+            v-model="password"
+            placeholder="Mot de passe"
+          />
+          <div id="media">
+            <div class="media_button" @click="externalLogin('this.googleProvider')">
+              <i class="fab fa-google"></i>
+            </div>
+            <div class="media_button" @click="externalLogin('this.facebookProvider')">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+          </div>
+          <button
+            id="logButton"
+            @click="login"
+          >SE CONNECTER</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="/js/login.js"></script>
+</html>

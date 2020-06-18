@@ -1,22 +1,18 @@
-const Sequelize = require("sequelize");
-
-const Cart = sequelize.define(
-  "cart",
-  {
-    user_id: {
-      type: Sequelize.STRING,
-      primaryKey: true,
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const Cart = sequelize.define(
+    "Cart",
+    {
+      userId: DataTypes.STRING,
+      gameId: DataTypes.INTEGER,
+      quantity: DataTypes.INTEGER,
     },
-    game_id: {
-      type: Sequelize.INTEGER,
-    },
-    quantity: {
-      type: Sequelize.INTEGER,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-
-module.exports = Cart;
+    {}
+  );
+  Cart.associate = function (models) {
+    // associations can be defined here
+    Cart.belongsTo(models.Game, { foreignKey: "gameId" });
+    Cart.belongsTo(models.User, { foreignKey: "userId" });
+  };
+  return Cart;
+};
