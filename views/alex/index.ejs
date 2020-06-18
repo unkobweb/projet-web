@@ -9,9 +9,19 @@
   <body>
     <%- include('header.ejs') %>
     <div id="homepage">
+      <video
+        poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg"
+        id="bgvid"
+        playsinline
+        autoplay
+        muted
+        loop
+      >
+        <source src="/img/background/background.mp4" type="video/mp4" />
+      </video>
       <h1 class="category">Nouveautés</h1>
       <div class="jeux">
-        <%games.forEach(game => {%>
+        <%gamesDate.forEach(game => {%>
         <div class="jeu" @click="goToGame(<%=game.id%>)">
           <img src="/img/games/<%=game.slug%>.jpg" class="pochette" />
           <img
@@ -20,7 +30,28 @@
             class="plateformLogo"
           />
           <h2>
-            <%= game.title%> <span class="discount">-<%=game.discount%>%</span>
+            <%= game.title%>
+            <span class="discount">-<%=game.discount%>%</span>
+          </h2>
+          <h4>
+            <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%> €
+          </h4>
+        </div>
+        <%});%>
+      </div>
+      <h1 class="category">Soldes</h1>
+      <div class="jeux">
+        <%gamesDiscount.forEach(game => {%>
+        <div class="jeu" @click="goToGame(<%=game.id%>)">
+          <img src="/img/games/<%=game.slug%>.jpg" class="pochette" />
+          <img
+            src="/img/plateforms/<%=game.Plateform.slug%>_logo.png"
+            alt="<%=game.Plateform.slug%>"
+            class="plateformLogo"
+          />
+          <h2>
+            <%= game.title%>
+            <span class="discount">-<%=game.discount%>%</span>
           </h2>
           <h4>
             <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%> €
@@ -29,7 +60,6 @@
         <%});%>
       </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/index.js"></script>
   </body>
