@@ -12,41 +12,50 @@
   </head>
   <body>
     <%- include('header.ejs') %>
-    <div id="login">
-        <div class="inputs">
-          <h1>connexion</h1>
-          <div id="message" v-if="message">
-            <h2>{{ message }}</h2>
-          </div>
-          <label for="mail">Adresse mail</label>
-          <input
-            name="mail"
-            type="email"
-            v-model="mail"
-            placeholder="Adresse mail"
-          />
-          <label for="pass">Mot de passe</label>
-          <input
-            name="pass"
-            type="password"
-            v-model="password"
-            placeholder="Mot de passe"
-          />
-          <div id="media">
-            <div class="media_button" @click="externalLogin('this.googleProvider')">
-              <i class="fab fa-google"></i>
+      <div id="login">
+        <video
+          id="bgvid"
+          playsinline
+          autoplay
+          muted
+          loop
+        >
+          <source src="/img/background/background.mp4" type="video/mp4" />
+        </video>
+          <div class="inputs">
+            <h1>connexion</h1>
+            <div id="message" v-if="message">
+              <h2>{{ message }}</h2>
             </div>
-            <div class="media_button" @click="externalLogin('this.facebookProvider')">
-              <i class="fab fa-facebook-f"></i>
+            <label for="mail">Adresse mail</label>
+            <input
+              name="mail"
+              type="email"
+              v-model="mail"
+              placeholder="Adresse mail"
+            />
+            <label for="pass">Mot de passe</label>
+            <input
+              name="pass"
+              type="password"
+              v-model="password"
+              placeholder="Mot de passe"
+            />
+            <div id="media">
+              <div class="media_button" @click="externalLogin('this.googleProvider')">
+                <i class="fab fa-google"></i>
+              </div>
+              <div class="media_button" @click="externalLogin('this.facebookProvider')">
+                <i class="fab fa-facebook-f"></i>
+              </div>
             </div>
+            <button
+              id="logButton"
+              @click="login"
+            >SE CONNECTER</button>
           </div>
-          <button
-            id="logButton"
-            @click="login"
-          >SE CONNECTER</button>
         </div>
       </div>
-    </div>
   </body>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
