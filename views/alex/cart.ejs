@@ -8,6 +8,9 @@
   </head>
   <body>
     <%- include('header.ejs') %>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
     <div id="cart">
       <% let total = 0%>
       <h1>Mon <i class="fas fa-shopping-cart"></i> panier</h1>
