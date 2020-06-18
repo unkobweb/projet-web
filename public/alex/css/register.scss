@@ -1,0 +1,70 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: #7045af;
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 600px;
+$medium: 1080px; // A faire
+$large: 1400px; // A faire
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+h1 {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  label {
+    text-transform: uppercase;
+    color: white;
+    font-size: 25px;
+  }
+  input {
+    display: block;
+    margin: 20px 0px;
+    padding: 10px;
+    background-color: $darkBlue;
+    border: 2px solid $pink;
+    height: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+    background-color: rgba(112, 69, 175, 0.5);
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-family: monospace, sans-serif;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
