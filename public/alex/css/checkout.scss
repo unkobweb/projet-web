@@ -1,7 +1,7 @@
 //Colors
 $darkBlue: #182952;
 $blue: #2b3595;
-$purple: #7045af;
+$purple: rgba(112, 69, 175, 0.5);
 $pink: #e14594;
 
 // Breakpoints
@@ -71,6 +71,7 @@ h1 {
     border-radius: 5px;
     font-size: 24px;
     color: white;
+    font-family: monospace;
     &:hover {
       cursor: pointer;
     }
