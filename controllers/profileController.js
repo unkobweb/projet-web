@@ -1,6 +1,14 @@
+const session = require("express-session");
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
+
 const User = require("../models/").User;
 const Cart = require("../models/").Cart;
 const Game = require("../models/").Game;
+const Order = require("../models/").Order;
+const Product = require("../models/").Product;
+const CdKey = require("../models/").CdKey;
+const Plateform = require("../models/").Plateform;
 
 const stripe = require("stripe")(
   "sk_test_51GukP3KkoFC8y2MeU06o6UMEHXUGNVOtlig0hsIEaodq7S75Uv7D9OF1Ghs6QHjXHOiqorh34qMpwRZwlFn3OBEs00Vxtzhy8A",
@@ -25,7 +33,7 @@ async function checkout(req, res) {
       );
     });
     console.log(total);
-    total = total.toString().split(".").join("");
+    total = total.toFixed(2).toString().split(".").join("");
     console.log(total);
     let paymentIntent = await stripe.paymentIntents.create({
       amount: total,
@@ -43,16 +51,96 @@ async function checkout(req, res) {
 }
 
 async function succeed(req, res) {
-  let oldCarts = await Cart.findAll({ where: { userId: req.session.user.id } });
-  oldCarts.forEach((old) => {
-    old.destroy();
+  const doc = new PDFDocument();
+  doc.pipe(fs.createWriteStream("facture.pdf"));
+  doc.image("./public/alex/img/logo/togames-together.png", 15, 15, {
+    width: 100,
   });
-  let newUser = await User.findOne({
-    where: { id: req.session.user.id },
-    include: [{ model: Cart, include: [Game] }],
+  doc.font("Helvetica-Bold").fontSize(25).text("FACTURE", {
+    height: 100,
+    align: "center",
   });
-  req.session.user = newUser;
-  res.sendStatus(200);
+  let oldCarts = await Cart.findAll({
+    include: [{ model: Game, include: [Plateform] }],
+    where: { userId: req.session.user.id },
+  });
+  let newOrder = await Order.create({
+    userId: req.session.user.id,
+  });
+  let date = new Date();
+  doc
+    .fontSize(15)
+    .text(
+      `Facture n° ${newOrder.id}\n${req.session.user.username}\n${
+        date.getDate() +
+        "/" +
+        (parseInt(date.getMonth()) + 1 > 9
+          ? parseInt(date.getMonth()) + 1
+          : "0" + (parseInt(date.getMonth()) + 1)) +
+        "/" +
+        date.getFullYear()
+      }`,
+      20,
+      130
+    );
+  doc.text("Jeu", 20, 200);
+  doc.text("Plateforme", 150, 200);
+  doc.text("Clé", 260, 200);
+  doc.text("Prix", 500, 200);
+  doc.font("Helvetica").fontSize(12);
+  let compteur = 0;
+  for (let i = 0; i < oldCarts.length; i++) {
+    let old = oldCarts[i];
+    console.log(old);
+    for (let i = 0; i < old.quantity; i++) {
+      doc
+        .moveTo(600, 220 + 20 * compteur)
+        .lineTo(10, 220 + 20 * compteur)
+        .stroke(); //moveTo = point final et lineTo d'où ça part
+
+      let newCdKey = await CdKey.findOne({ where: { gameId: old.gameId } });
+      doc.text(`${old.Game.title}`, 20, 220 + 20 * compteur + 10);
+      doc.text(`${old.Game.Plateform.name}`, 150, 220 + 20 * compteur + 10);
+      doc.text(`${newCdKey.cd_key}`, 260, 220 + 20 * compteur + 10);
+      console.log(
+        `Prix ${(
+          old.Game.price -
+          old.Game.price * (old.Game.discount / 100)
+        ).toFixed(2)} €`
+      );
+      doc.text(
+        `${(
+          old.Game.price -
+          old.Game.price * (old.Game.discount / 100)
+        ).toFixed(2)}€`,
+        500,
+        220 * compteur + 10
+      );
+      newCdKey.is_used = true;
+      await newCdKey.save();
+      compteur++;
+      await newOrder.createProduct({
+        gameId: old.gameId,
+        keyId: newCdKey.id,
+        price: old.Game.price,
+        discount: old.Game.discount,
+      });
+    }
+    await old.destroy();
+    if (i == oldCarts.length - 1) {
+      let newUser = await User.findOne({
+        where: { id: req.session.user.id },
+        include: [
+          { model: Cart, include: [{ model: Game, include: [Plateform] }] },
+        ],
+      });
+      doc.end();
+      req.session.user = newUser;
+      res.sendStatus(200);
+    }
+  }
+}
+
 async function purchaseIndex(req, res) {
   if (req.session.user != undefined) {
     let purchases = await Order.findAll({
@@ -69,5 +157,4 @@ async function purchaseIndex(req, res) {
   }
 }
 
-module.exports = { index, checkout, succeed };
 module.exports = { index, checkout, succeed, purchaseIndex };
