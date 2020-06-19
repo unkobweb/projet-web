@@ -6,6 +6,7 @@ const User = require("./models").User;
 const Game = require("./models").Game;
 const Cart = require("./models").Cart;
 const Plateform = require("./models").Plateform;
+const CdKey = require("./models/").CdKey;
 
 //Firebase
 require("./config/authentication");
@@ -91,4 +92,38 @@ Plateform.create({
   name: "Xbox One",
   slug: "xbox_one",
 });
+
+async function func() {
+  let games = await Game.findAll();
+
+  function genKey() {
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    let key = "";
+    for (let i = 0; i < 4; i++) {
+      for (let y = 0; y < 5; y++) {
+        key += chars[getRandomInt(getRandomInt(chars.length))];
+      }
+      if (i == 3) {
+        break;
+      } else {
+        key += "-";
+      }
+    }
+    return key;
+  }
+  games.forEach((jeu) => {
+    for (let i = 0; i < 4; i++) {
+      let key = genKey();
+      CdKey.create({
+        gameId: jeu.id,
+        cd_key: key,
+        is_used: false,
+      });
+    }
+  });
+}
+func();
 */
