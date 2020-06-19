@@ -27,5 +27,6 @@ router.post("/removeFromCart/:id", gameController.removeFromCart);
 router.get("/profile", profileController.index);
 router.get("/checkout", profileController.checkout);
 router.post("/succeed", profileController.succeed);
+router.get("/purchases", profileController.purchaseIndex);
 
 module.exports = router;
