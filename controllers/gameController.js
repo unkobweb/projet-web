@@ -3,6 +3,7 @@ const Game = require("../models").Game;
 const Mark = require("../models").Mark;
 const Plateform = require("../models").Plateform;
 const Cart = require("../models").Cart;
+const CdKey = require("../models").CdKey;
 
 async function index(req, res) {
   //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
@@ -38,6 +39,7 @@ async function show(req, res) {
   let game = await Game.findOne({
     include: [
       { model: Plateform },
+      { model: CdKey, where: { is_used: false } },
       { model: Mark, include: [{ model: User }] },
     ],
     where: { id: req.params.id },
