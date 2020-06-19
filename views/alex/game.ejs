@@ -11,6 +11,7 @@
     <video id="bgvid" playsinline autoplay muted loop>
       <source src="/img/background/background.mp4" type="video/mp4" />
     </video>
+    <%game.quantity = game.CdKeys.length%>
     <% let noteMax = 0; let nbAvis = 0; for (let
     avis of game.Marks){ if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } }
     let moyenne = noteMax/(nbAvis || 1) %>
