@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   CdKey.associate = function (models) {
     // associations can be defined here
-    CdKey.belongsTo(models.Product);
+    CdKey.hasOne(models.Product, { foreignKey: "keyId" });
+    CdKey.belongsTo(models.Game, { foreignKey: "gameId" });
   };
   return CdKey;
 };

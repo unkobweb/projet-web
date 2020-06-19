@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     Game.hasMany(models.Mark, { foreignKey: "gameId" });
     Game.hasMany(models.Product, { foreignKey: "gameId" });
     Game.belongsTo(models.Plateform, { foreignKey: "plateform_id" });
+    Game.hasMany(models.CdKey, { foreignKey: "gameId" });
   };
   return Game;
 };
