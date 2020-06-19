@@ -53,6 +53,21 @@ async function succeed(req, res) {
   });
   req.session.user = newUser;
   res.sendStatus(200);
+async function purchaseIndex(req, res) {
+  if (req.session.user != undefined) {
+    let purchases = await Order.findAll({
+      where: { userId: req.session.user.id },
+      include: [{ model: Product, include: [CdKey, Game] }],
+    });
+    res.render("purchases.ejs", {
+      session: req.session.user,
+      nbPage: 5,
+      purchases: purchases,
+    });
+  } else {
+    res.redirect("/");
+  }
 }
 
 module.exports = { index, checkout, succeed };
+module.exports = { index, checkout, succeed, purchaseIndex };
