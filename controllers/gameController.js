@@ -5,10 +5,9 @@ const Plateform = require("../models").Plateform;
 const Cart = require("../models").Cart;
 const CdKey = require("../models").CdKey;
 
-async function index(req, res) {
-  //Plateform.hasMany(Game, { as: "Jeux", foreignKey: "plateform_id" });
-
-  let gamesDiscount = await Game.findAll({
+async function getDiscount(req, res) {
+  console.log(req.body);
+  let jeux = await Game.findAll({
     raw: true,
     nest: true,
     include: [{ model: Plateform, as: "Plateform" }],
@@ -16,20 +15,26 @@ async function index(req, res) {
       ["discount", "DESC"],
       ["id", "DESC"],
     ],
-    limit: 6,
-    offset: 0,
+    limit: req.body.number,
+    offset: req.body.offset,
   });
-  let gamesDate = await Game.findAll({
+  res.send(jeux);
+}
+async function getLate(req, res) {
+  console.log(req.body);
+  let jeux = await Game.findAll({
     raw: true,
     nest: true,
     include: [{ model: Plateform, as: "Plateform" }],
     order: [["id", "DESC"]],
-    limit: 6,
-    offset: 0,
+    limit: req.body.number,
+    offset: req.body.offset,
   });
+
+  res.send(jeux);
+}
+async function index(req, res) {
   res.render("index.ejs", {
-    gamesDiscount: gamesDiscount,
-    gamesDate: gamesDate,
     session: req.session.user,
     nbPage: 1,
   });
@@ -39,7 +44,7 @@ async function show(req, res) {
   let game = await Game.findOne({
     include: [
       { model: Plateform },
-      { model: CdKey, where: { is_used: false } },
+      { model: CdKey, required: false, where: { is_used: false } },
       { model: Mark, include: [{ model: User }] },
     ],
     where: { id: req.params.id },
@@ -112,4 +117,12 @@ function cart(req, res) {
   }
 }
 
-module.exports = { index, show, addToCart, removeFromCart, cart };
+module.exports = {
+  index,
+  show,
+  addToCart,
+  removeFromCart,
+  cart,
+  getDiscount,
+  getLate,
+};
