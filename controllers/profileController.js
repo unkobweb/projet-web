@@ -32,9 +32,7 @@ async function checkout(req, res) {
         ) * jeu.quantity
       );
     });
-    console.log(total);
     total = total.toFixed(2).toString().split(".").join("");
-    console.log(total);
     let paymentIntent = await stripe.paymentIntents.create({
       amount: total,
       currency: "eur",
@@ -91,7 +89,6 @@ async function succeed(req, res) {
   let compteur = 0;
   for (let i = 0; i < oldCarts.length; i++) {
     let old = oldCarts[i];
-    console.log(old);
     for (let i = 0; i < old.quantity; i++) {
       doc
         .moveTo(600, 220 + 20 * compteur)
