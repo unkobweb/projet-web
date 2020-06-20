@@ -1,6 +1,7 @@
 // Import modules
 const express = require("express");
 const session = require("express-session");
+const mailer = require("express-mailer");
 
 const User = require("./models").User;
 const Game = require("./models").Game;
@@ -12,6 +13,23 @@ const CdKey = require("./models/").CdKey;
 require("./config/authentication");
 
 const app = express();
+
+mailer.extend(app, {
+  from: "support@to-games-together.fr",
+  host: "smtp.gmail.com", // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: "SMTP", // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: "togamestogether@gmail.com",
+    pass: "simonandalex44200",
+  },
+});
+app.set("view engine", "ejs");
+
+module.exports = { mailer, app };
+(global.app = app), (global.mailer = mailer);
+
 app.use(
   session({
     secret: "togametogethersecret",

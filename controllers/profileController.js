@@ -51,15 +51,6 @@ async function checkout(req, res) {
 }
 
 async function succeed(req, res) {
-  const doc = new PDFDocument();
-  doc.pipe(fs.createWriteStream("facture.pdf"));
-  doc.image("./public/alex/img/logo/togames-together.png", 15, 15, {
-    width: 100,
-  });
-  doc.font("Helvetica-Bold").fontSize(25).text("FACTURE", {
-    height: 100,
-    align: "center",
-  });
   let oldCarts = await Cart.findAll({
     include: [{ model: Game, include: [Plateform] }],
     where: { userId: req.session.user.id },
@@ -68,6 +59,15 @@ async function succeed(req, res) {
     userId: req.session.user.id,
   });
   let date = new Date();
+  const doc = new PDFDocument();
+  doc.pipe(fs.createWriteStream("./invoices/facture" + newOrder.id + ".pdf"));
+  doc.image("./public/alex/img/logo/togames-together.png", 15, 15, {
+    width: 100,
+  });
+  doc.font("Helvetica-Bold").fontSize(25).text("FACTURE", {
+    height: 100,
+    align: "center",
+  });
   doc
     .fontSize(15)
     .text(
@@ -135,6 +135,27 @@ async function succeed(req, res) {
         ],
       });
       doc.end();
+      app.mailer.send(
+        "mail",
+        {
+          to: req.session.user.email, // REQUIRED. This can be a comma delimited string just like a normal email to field.
+          subject: "Votre commande", // REQUIRED.
+          otherProperty: { session: req.session.user, oldCarts: oldCarts },
+          attachments: [
+            {
+              fileName: "facture" + newOrder.id + ".pdf",
+              filePath: "./invoices/facture" + newOrder.id + ".pdf",
+            },
+          ],
+        },
+        function (err) {
+          if (err) {
+            // handle error
+            console.log(err);
+            return;
+          }
+        }
+      );
       req.session.user = newUser;
       res.sendStatus(200);
     }

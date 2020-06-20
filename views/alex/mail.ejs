@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Bonjour <%=otherProperty.session.username%> !</h1>
+    <p>
+      L'équipe de To Games Together vous remercie pour votre commande et nous
+      espéront vous revoir très prochainement sur notre site pour vos futurs
+      achats !
+    </p>
+    <p>Récapitulatif de votre commande :</p>
+    <ul>
+      <%console.log("BONNNNNNSOIR");%>
+      <%console.log(JSON.stringify(otherProperty.oldCarts, null, 4))%>
+      <%otherProperty.oldCarts.forEach(cart => {%> <%cart.cdKey.forEach(cdKey =>
+      {%>
+      <li>
+        <%=cart.Game.title%> - <%=cdKey%> -
+        <%=(cart.Game.price*(1-(cart.Game.discount/100))).toFixed(2)%> €
+      </li>
+      <%});%> <%});%>
+    </ul>
+  </body>
+</html>
