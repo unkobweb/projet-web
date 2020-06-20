@@ -89,32 +89,33 @@ async function succeed(req, res) {
   let compteur = 0;
   for (let i = 0; i < oldCarts.length; i++) {
     let old = oldCarts[i];
-    for (let i = 0; i < old.quantity; i++) {
+    oldCarts[i].cdKey = [];
+    for (let y = 0; y < old.quantity; y++) {
       doc
-        .moveTo(600, 220 + 20 * compteur)
-        .lineTo(10, 220 + 20 * compteur)
+        .moveTo(600, 220 + 25 * compteur)
+        .lineTo(10, 220 + 25 * compteur)
         .stroke(); //moveTo = point final et lineTo d'où ça part
 
-      let newCdKey = await CdKey.findOne({ where: { gameId: old.gameId } });
-      doc.text(`${old.Game.title}`, 20, 220 + 20 * compteur + 10);
-      doc.text(`${old.Game.Plateform.name}`, 150, 220 + 20 * compteur + 10);
-      doc.text(`${newCdKey.cd_key}`, 260, 220 + 20 * compteur + 10);
-      console.log(
-        `Prix ${(
-          old.Game.price -
-          old.Game.price * (old.Game.discount / 100)
-        ).toFixed(2)} €`
-      );
+      let newCdKey = await CdKey.findOne({
+        where: { gameId: old.gameId, is_used: false },
+      });
+      newCdKey.is_used = true;
+      await newCdKey.save();
+      oldCarts[i].cdKey.push(newCdKey.cd_key);
+      doc.text(`${old.Game.title}`, 20, 220 + 25 * compteur + 10, {
+        width: 115,
+      });
+      doc.text(`${old.Game.Plateform.name}`, 150, 220 + 25 * compteur + 10);
+      doc.text(`${newCdKey.cd_key}`, 260, 220 + 25 * compteur + 10);
       doc.text(
         `${(
           old.Game.price -
           old.Game.price * (old.Game.discount / 100)
         ).toFixed(2)}€`,
         500,
-        220 * compteur + 10
+        220 + 25 * compteur + 10
       );
-      newCdKey.is_used = true;
-      await newCdKey.save();
+      compteur += Math.floor(old.Game.title.length / 18);
       compteur++;
       await newOrder.createProduct({
         gameId: old.gameId,
