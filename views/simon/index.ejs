@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet"/>
     <title>To Games Together</title>
   </head>
   <body>
-    <div id="homepage">
+    <!-- <div id="homepage">
       <h1 class="category">Nouveautés</h1>
       <span class="direction" @click="getNewGames('left','late')"
         >Jeux précédents</span
@@ -51,6 +52,87 @@
       <span class="direction" @click="getNewGames('right','discount')"
         >Jeux suivants</span
       >
+    </div> -->
+
+    <div id="homepage" class="container">
+
+      <div class="home-logo">
+        <img class='logo' src='/img/logo/togames-together.png'/>
+      </div>
+
+      <nav class="navbar">
+        <a href="index.ejs" class="nav">
+          <p class="home">HOME</p>
+        </a>
+        <a href="cart.ejs" class="nav">
+          <p class="cart">SHOPPING CART</p>
+        </a>
+        <a href="login.ejs" class="nav">
+          <p class="login">LOGIN</p>
+        </a>
+        <a href="register.ejs" class="nav">
+          <p class="register">REGISTER</p>
+        </a>
+        <a href="profile.ejs" class="nav">
+          <p class="profile">PROFILE</p>
+        </a>
+        <input type="text" class="search" placeholder="Recherche">
+      </nav>
+
+      <div class="trending">
+
+        <div class="title">
+          <h1 class="category">Nouveautés</h1>
+        </div>
+
+        <div class="games">
+          <span class="direction left" @click="getNewGames('left','late')">Jeux précédents</span>
+
+          <div class="content">
+            <div class="jeu" v-for="jeu in jeuxLate" @click="goToGame(jeu.id)">
+              <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette">
+              <img :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'" :alt="jeu.Plateform.slug" class="plateformLogo">
+              <h2 class="title-discount">{{ jeu.title }} <span class="discount">- {{ jeu.discount }}%</span></h2>
+              <h4 class="ammount">{{ (jeu.price - jeu.price * (jeu.discount / 100)).toFixed(2) }}€</h4>
+            </div>
+          </div>
+
+          <span class="direction right" @click="getNewGames('right','late')">Jeux suivants</span>
+
+        </div>
+
+      </div>
+
+      <div class="sales">
+
+        <div class="title">
+          <h1 class="category">Soldes</h1>
+        </div>
+
+        <div class="games">
+          <span class="direction left" @click="getNewGames('left','late')">Jeux précédents</span>
+
+          <div class="content">
+            <div class="jeu" v-for="jeu in jeuxDiscount" @click="goToGame(jeu.id)">
+              <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette" />
+              <img :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'" :alt="jeu.Plateform.slug" class="plateformLogo"/>
+              <h2 class="title-discount">{{ jeu.title }} <span class="discount">-{{ jeu.discount }}%</span></h2>
+              <h4 class="ammount">{{ (jeu.price - jeu.price * (jeu.discount / 100)).toFixed(2) }}€</h4>
+            </div>
+          </div>
+
+          <span class="direction right" @click="getNewGames('right','late')">Jeux suivants</span>
+
+        </div>
+
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+          <p>2020 Tout droit réservé - Mentions légales - Ynov Nantes Campus - B2 Informatique</p>
+        </div>
+      </footer>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/index.js"></script>

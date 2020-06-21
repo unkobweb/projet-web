@@ -1,6 +1,7 @@
 //values
 $logo-width: 597px;
 $logo-height: 417px;
+
 //colors
 $fond: #061539;
 $fond-linear: linear-gradient(145deg, #06163d, #051333);
@@ -334,4 +335,56 @@ html, body {
             }
         }
     }   
+}
+
+#homepage {
+    display: flex;
+    flex-direction: column;
+    .home-logo {
+            width: 49px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .logo {
+
+                width: 49px;
+                height: 34px;
+        }
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .trending, .sales {
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .games {
+            display: flex;
+            flex-direction: row;
+            .direction {
+
+            }
+
+            .content {
+
+                .jeu {
+
+                }
+            }
+
+        }
+    }
+
+    .footer {
+
+    }
+
 }
