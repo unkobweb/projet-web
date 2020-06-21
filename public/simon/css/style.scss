@@ -338,15 +338,17 @@ html, body {
 }
 
 #homepage {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    font-family: Montserrat;
+
     .home-logo {
-            width: 196px;
-            height: 136px;
-            display: flex;
-            
+            width: 100%;
+            height: auto;
+            text-align: center;  
+
             .logo {
-                display: flex;
                 width: 196px;
                 height: 136px;
         }
@@ -357,9 +359,21 @@ html, body {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        border-radius: 0px;
+        background: linear-gradient(145deg, #051333, #06163d);
+        box-shadow:  5px 5px 11px #051231, 
+             -5px -5px 11px #071841;
 
         .nav {
             width: 20%;
+            text-align: center;
+            color: $orange;
+            text-decoration: none;
+            border-radius: 0px;
+            background: #061539;
+            box-shadow: inset 5px 5px 10px #051230, 
+            inset -5px -5px 10px #071842;
+
         }
 
         .search {
@@ -374,19 +388,62 @@ html, body {
             display: flex;
             justify-content: center;
             align-items: center;
+            color: $orange;
+            
+            .category {
+                font-family: Montserrat;
+            }
         }
 
         .games {
+            width: 100%;
+            height: auto;
             display: flex;
             flex-direction: row;
             .direction {
-
+                width: 50px;
             }
 
+            .left{
+                padding-right: 3.8%;
+            }
             .content {
-
+                display: flex;
+                flex-direction: row;
+                text-align: center;
+                justify-content: space-evenly;
                 .jeu {
+                    height: auto;
+                    width: 33%;
+                    display: flex;
+                    flex-direction: column;
+                    padding-right: 4%;
+                    .pochette {
+                        height: 200px;
+                        width: 400px;
+                    }
 
+                    .plateforme {
+                        margin-top: 5%;
+                        height: 30px;
+                        width: 100%;
+                        text-align: center;
+                        .plateformLogo {
+                            height: auto;
+                            width: 30px;
+                            text-align: center;
+                        }
+                    }
+
+                    .title-discount {
+                        color: $orange;
+                        font-size: 15px;
+                    }
+
+                    .ammount {
+                        color: $blanc;
+                        margin: 0;
+                    }
                 }
             }
 
@@ -394,7 +451,12 @@ html, body {
     }
 
     .footer {
-
+        display: flex;
+        justify-content: center;
+        .copyright {
+            color: $blanc;
+            font-size: 10px;
+        }
     }
 
 }
