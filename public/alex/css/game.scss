@@ -25,6 +25,11 @@ body {
   padding: 20px;
   border-radius: 4px;
 
+  #pochette {
+    max-width: 270px;
+    max-height: 380px;
+  }
+
   #info {
     margin-left: 20px;
     color: white;
