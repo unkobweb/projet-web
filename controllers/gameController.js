@@ -117,6 +117,33 @@ async function createMark(req, res) {
   res.sendStatus(200);
 }
 
+async function markIndex(req, res) {
+  if (req.session.user != undefined) {
+    let jeu = await Game.findOne({
+      where: { id: req.params.id },
+      include: [
+        Plateform,
+        {
+          model: Mark,
+          where: { userId: req.session.user.id },
+          required: false,
+        },
+      ],
+    });
+    if (jeu.dataValues.Marks.length < 1) {
+      res.render("mark.ejs", {
+        session: req.session.user,
+        game: jeu,
+        nbPage: 0,
+      });
+    } else {
+      res.redirect("/purchases");
+    }
+  } else {
+    res.redirect("/");
+  }
+}
+
 function cart(req, res) {
   if (req.session.user) {
     res.render("cart.ejs", {
@@ -137,4 +164,5 @@ module.exports = {
   getDiscount,
   getLate,
   createMark,
+  markIndex,
 };
