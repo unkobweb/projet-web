@@ -341,21 +341,31 @@ html, body {
     display: flex;
     flex-direction: column;
     .home-logo {
-            width: 49px;
-            height: 34px;
+            width: 196px;
+            height: 136px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            
             .logo {
-
-                width: 49px;
-                height: 34px;
+                display: flex;
+                width: 196px;
+                height: 136px;
         }
     }
 
     .navbar {
+        width: 100%;
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
+
+        .nav {
+            width: 20%;
+        }
+
+        .search {
+            background-color: $fond;
+            border: none;
+        }
     }
 
     .trending, .sales {
