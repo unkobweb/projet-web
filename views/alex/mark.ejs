@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/dist/mark.css" />
+  </head>
+  <body>
+    <%- include('header.ejs')%>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
+    <div id="mark">
+      <div id="game" data-gameid="<%=game.id%>">
+        <img src="/img/games/<%=game.slug%>.jpg" alt="<%=game.title%>" />
+      </div>
+      <div id="review">
+        <h1>Jeu : <%=game.title%></h1>
+        <h2>Plateforme : <%=game.Plateform.name%></h2>
+        <span id="stars" v-on:mouseleave="restoreMark">
+          <span
+            class="star"
+            data-index="1"
+            v-on:mouseover="overmark(1)"
+            v-on:click="changeMark(1)"
+            ><i class="fas fa-star"></i
+          ></span>
+          <span
+            class="star"
+            data-index="2"
+            v-on:mouseover="overmark(2)"
+            v-on:click="changeMark(2)"
+            ><i class="far fa-star"></i
+          ></span>
+          <span
+            class="star"
+            data-index="3"
+            v-on:mouseover="overmark(3)"
+            v-on:click="changeMark(3)"
+            ><i class="far fa-star"></i
+          ></span>
+          <span
+            class="star"
+            data-index="4"
+            v-on:mouseover="overmark(4)"
+            v-on:click="changeMark(4)"
+            ><i class="far fa-star"></i
+          ></span>
+          <span
+            class="star"
+            data-index="5"
+            v-on:mouseover="overmark(5)"
+            v-on:click="changeMark(5)"
+            ><i class="far fa-star"></i
+          ></span>
+        </span>
+        <textarea placeholder="Votre avis" v-model="review"></textarea>
+        <button id="validate" @click="buy">Publier mon avis</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/js/mark.js"></script>
+  </body>
+</html>
