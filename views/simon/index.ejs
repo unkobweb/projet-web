@@ -12,7 +12,7 @@
         >Jeux précédents</span
       >
       <div class="jeu" v-for="jeu in jeuxLate" @click="goToGame(jeu.id)">
-        <img :src="'/img/games/'+jeu.slug+'.jpg'" class="pochette" />
+        <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette" />
         <img
           :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'"
           :alt="jeu.Plateform.slug"
@@ -34,7 +34,7 @@
         >Jeux précédents</span
       >
       <div class="jeu" v-for="jeu in jeuxDiscount" @click="goToGame(jeu.id)">
-        <img :src="'/img/games/'+jeu.slug+'.jpg'" class="pochette" />
+        <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette" />
         <img
           :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'"
           :alt="jeu.Plateform.slug"
