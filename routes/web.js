@@ -30,5 +30,7 @@ router.post("/succeed", profileController.succeed);
 router.get("/purchases", profileController.purchaseIndex);
 router.post("/getDiscount", gameController.getDiscount);
 router.post("/getLate", gameController.getLate);
+router.get("/mark/:id", gameController.markIndex);
+router.post("/addMark", gameController.createMark);
 
 module.exports = router;
