@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mes achats</title>
+    <link rel="stylesheet" href="/css/dist/purchases.css" />
   </head>
   <body>
-    <%- include("header.ejs")%> <%purchases.forEach(purchase => {%>
-    <%=JSON.stringify(purchase)%> <%})%>
+    <%function getDate(date){ return date.getDate() + "/" +
+    (parseInt(date.getMonth()) + 1 > 9 ? parseInt(date.getMonth()) + 1 : "0" +
+    (parseInt(date.getMonth()) + 1)) + "/" + date.getFullYear() }%> <%-
+    include("header.ejs")%>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
+    <div id="purchases">
+      <table>
+        <tr>
+          <th>Articles</th>
+          <th>Plateforme</th>
+          <th>Clé</th>
+          <th>Date</th>
+          <th>Avis</th>
+        </tr>
+        <%purchases.forEach(achat => {%> <%achat.Products.forEach(article => {%>
+        <tr>
+          <td>
+            <img
+              src="/img/games/<%=article.Game.slug%>.jpg"
+              alt="<%=article.Game.title%>"
+            />
+            <span><%=article.Game.title%></span>
+          </td>
+          <td><%=article.Game.Plateform.name%></td>
+          <td><%=article.CdKey.cd_key%></td>
+          <td><%=getDate(article.createdAt)%></td>
+          <%if (article.Game.Marks.length < 1){%>
+          <td><a href="/mark/<%=article.Game.id%>">Ajouter un avis</a></td>
+          <%} else {%>
+          <td class="rate">
+            <span>
+              <%for (let i = 0; i < article.Game.Marks[0].mark; i++){%>
+              <i class="fas fa-star"></i>
+              <%};%> <%for (let i = 5; i > article.Game.Marks[0].mark; i--){%>
+              <i class="far fa-star"></i>
+              <%};%>
+            </span>
+            <span><%=article.Game.Marks[0].review%></span>
+          </td>
+          <%}%>
+        </tr>
+        <%});%> <%});%>
+      </table>
+    </div>
   </body>
 </html>
