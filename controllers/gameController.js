@@ -106,6 +106,17 @@ async function removeFromCart(req, res) {
   }
 }
 
+async function createMark(req, res) {
+  console.log(req.body);
+  await Mark.create({
+    userId: req.session.user.id,
+    gameId: req.body.gameId,
+    mark: req.body.mark,
+    review: req.body.review,
+  });
+  res.sendStatus(200);
+}
+
 function cart(req, res) {
   if (req.session.user) {
     res.render("cart.ejs", {
@@ -125,4 +136,5 @@ module.exports = {
   cart,
   getDiscount,
   getLate,
+  createMark,
 };
