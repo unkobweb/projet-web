@@ -9,6 +9,7 @@ const Order = require("../models/").Order;
 const Product = require("../models/").Product;
 const CdKey = require("../models/").CdKey;
 const Plateform = require("../models/").Plateform;
+const Mark = require("../models/").Mark;
 
 const stripe = require("stripe")(
   "sk_test_51GukP3KkoFC8y2MeU06o6UMEHXUGNVOtlig0hsIEaodq7S75Uv7D9OF1Ghs6QHjXHOiqorh34qMpwRZwlFn3OBEs00Vxtzhy8A",
@@ -164,7 +165,21 @@ async function purchaseIndex(req, res) {
   if (req.session.user != undefined) {
     let purchases = await Order.findAll({
       where: { userId: req.session.user.id },
-      include: [{ model: Product, include: [CdKey, Game] }],
+      include: [
+        {
+          model: Product,
+          include: [
+            CdKey,
+            {
+              model: Game,
+              include: [
+                Plateform,
+                { model: Mark, required: false, userId: req.session.user.id },
+              ],
+            },
+          ],
+        },
+      ],
     });
     res.render("purchases.ejs", {
       session: req.session.user,
