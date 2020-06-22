@@ -10,7 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       email: DataTypes.STRING,
       date_of_birth: DataTypes.DATEONLY,
-      balance: DataTypes.FLOAT,
     },
     {}
   );
