@@ -23,6 +23,10 @@
       ><i class="fas fa-user-plus"></i> <span>inscription</span></a
     >
     <% } else { %>
+      <%if (session.role > 0){%>
+        <a href="/admin" class="<%=nbPage == 7 ? "active" : ""%>"><i class="fas fa-crown"></i> <span>admin panel</span></a>
+      <%}%>
+      
     <a href="/cart" class="<%=nbPage == 4 ? "active" : ""%>"
       ><i class="fas fa-shopping-cart"></i>
       <span
