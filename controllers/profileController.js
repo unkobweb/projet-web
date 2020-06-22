@@ -53,6 +53,15 @@ async function checkout(req, res) {
   }
 }
 
+async function updateUser(req, res) {
+  let currentUser = await User.findOne({ where: { id: req.session.user.id } });
+  currentUser.username = req.body.username;
+  currentUser.date_of_birth = req.body.birthdate;
+  currentUser.save();
+  req.session.user = currentUser;
+  res.redirect("/");
+}
+
 async function succeed(req, res) {
   let oldCarts = await Cart.findAll({
     include: [{ model: Game, include: [Plateform] }],
@@ -195,4 +204,4 @@ async function purchaseIndex(req, res) {
   }
 }
 
-module.exports = { index, checkout, succeed, purchaseIndex };
+module.exports = { index, checkout, succeed, purchaseIndex, updateUser };
