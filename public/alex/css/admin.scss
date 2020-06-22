@@ -1,0 +1,76 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: rgba(112, 69, 175, 0.5);
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 920px;
+$large: 1590px;
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+#admin {
+  background-color: $purple;
+  padding: 15px;
+  width: 80%;
+  min-width: 1000px;
+  margin: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  #dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .container {
+      width: 100%;
+      text-align: center;
+      .diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+          color: black;
+        }
+        margin: 5px;
+        background-color: transparentize($color: white, $amount: 0.2);
+        padding: 5px;
+        #myChart {
+          max-width: 350px;
+          color: white;
+        }
+      }
+    }
+  }
+  #members,
+  #marks {
+    #container {
+      display: flex;
+      flex-direction: column;
+      background-color: transparentize($color: $pink, $amount: 0.4);
+      border-radius: 20px;
+      padding: 5px;
+      max-height: 200px;
+      overflow-y: scroll;
+      span {
+        margin-bottom: 7px;
+        a {
+          background-color: $purple;
+          padding: 4px;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
