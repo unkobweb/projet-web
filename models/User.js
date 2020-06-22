@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       email: DataTypes.STRING,
       date_of_birth: DataTypes.DATEONLY,
+      role: DataTypes.INTEGER,
     },
     {}
   );
