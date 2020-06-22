@@ -17,10 +17,14 @@ const stripe = require("stripe")(
 );
 
 function index(req, res) {
-  res.render("profile.ejs", {
-    session: req.session.user,
-    nbPage: 6,
-  });
+  if (req.session.user != undefined) {
+    res.render("profile.ejs", {
+      session: req.session.user,
+      nbPage: 6,
+    });
+  } else {
+    res.redirect("/");
+  }
 }
 
 async function checkout(req, res) {
