@@ -4,6 +4,8 @@ const Mark = require("../models").Mark;
 const Plateform = require("../models").Plateform;
 const Cart = require("../models").Cart;
 const CdKey = require("../models").CdKey;
+const Order = require("../models").Order;
+const Product = require("../models").Product;
 
 async function getDiscount(req, res) {
   console.log(req.body);
@@ -130,7 +132,16 @@ async function markIndex(req, res) {
         },
       ],
     });
-    if (jeu.dataValues.Marks.length < 1) {
+    let order = await Order.findOne({
+      where: { userId: req.session.user.id },
+      include: [
+        {
+          model: Product,
+          include: [{ model: Game, where: { id: req.params.id } }],
+        },
+      ],
+    });
+    if (jeu.dataValues.Marks.length < 1 && order != null) {
       res.render("mark.ejs", {
         session: req.session.user,
         game: jeu,
