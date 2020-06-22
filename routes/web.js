@@ -32,5 +32,6 @@ router.post("/getDiscount", gameController.getDiscount);
 router.post("/getLate", gameController.getLate);
 router.get("/mark/:id", gameController.markIndex);
 router.post("/addMark", gameController.createMark);
+router.post("/updateUser", urlencodedParser, profileController.updateUser);
 
 module.exports = router;
