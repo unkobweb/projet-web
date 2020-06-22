@@ -7,6 +7,7 @@ require("dotenv").config();
 const gameController = require("../controllers/gameController");
 const authController = require("../controllers/authController");
 const profileController = require("../controllers/profileController");
+const adminController = require("../controllers/adminController");
 
 router.use("/", (req, res, next) => {
   req.session.style = process.env.STYLE || "simon";
@@ -33,5 +34,7 @@ router.post("/getLate", gameController.getLate);
 router.get("/mark/:id", gameController.markIndex);
 router.post("/addMark", gameController.createMark);
 router.post("/updateUser", urlencodedParser, profileController.updateUser);
+router.get("/admin", adminController.index);
+router.get("/getDashInfo", adminController.getDashInfo);
 
 module.exports = router;
