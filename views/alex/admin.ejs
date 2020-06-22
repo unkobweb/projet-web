@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="/css/dist/admin.css" />
+  </head>
+  <body>
+    <%- include('header.ejs')%>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
+    <h1>Tableau de bord</h1>
+    <div id="admin">
+      <div id="dashboard">
+        <div class="container">
+          <h2>Ventes</h2>
+          <p id="salesTotal">Total des ventes :</p>
+          <div class="diagram">
+            <span>Ventes sur les 7 derniers jours</span>
+            <span id="totalSales">Total : </span>
+            <canvas id="allSales"></canvas>
+          </div>
+        </div>
+        <div class="container">
+          <h2>Recettes</h2>
+          <p id="moneyTotal">Total des ventes :</p>
+          <div class="diagram">
+            <span>Recettes sur les 7 derniers jours</span>
+            <span id="totalMoney">Total : </span>
+            <canvas id="allMembers"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="members">
+        <h2>Membres - <%=members.length%> membres</h2>
+        <div id="container">
+          <%members.forEach(member => {%>
+          <span
+            ><%=member.id%> - <%=member.username%>
+            <a href="/modifyMember/<%=member.id%>">Modifer</a>
+            <a href="/deleteMember/<%=member.id%>">Supprimer</a></span
+          >
+          <%});%>
+        </div>
+      </div>
+      <div id="marks">
+        <h2>Avis - <%=marks.length%> avis</h2>
+        <div id="container">
+          <%marks.forEach(mark => {%> <%console.log(JSON.stringify(mark, null,
+          4))%>
+          <span
+            ><%=mark.User.id%> - <%=mark.User.username%> - <%=mark.Game.title%>
+            <a href="/modifyMark/<%=mark.id%>">Modifer</a>
+            <a href="/deleteMark/<%=mark.id%>">Supprimer</a></span
+          >
+          <%});%>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
