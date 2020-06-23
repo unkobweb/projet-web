@@ -151,6 +151,9 @@ async function changeGame(req, res) {
 }
 async function deleteGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.params.id } });
+    game.destroy();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
