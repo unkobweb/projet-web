@@ -101,6 +101,12 @@ async function modifyMark(req, res) {
 }
 async function changeMark(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let mark = await Mark.findOne({
+      where: { id: req.body.id },
+    });
+    mark.review = req.body.review;
+    mark.save();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
