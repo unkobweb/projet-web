@@ -1,0 +1,99 @@
+body {
+  background-color: #2b3595;
+}
+
+#login .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#login .inputs h1 {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#login .inputs label {
+  text-transform: uppercase;
+  color: white;
+  font-size: 25px;
+}
+
+#login .inputs input {
+  display: block;
+  margin: 20px 0px;
+  padding: 10px;
+  background-color: #182952;
+  border: 2px solid #e14594;
+  color: white;
+  font-family: monospace, sans-serif;
+}
+
+#login .inputs input:focus {
+  outline: none;
+}
+
+#login .inputs button {
+  margin: auto;
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  font-family: monospace, sans-serif;
+  font-size: 16px;
+}
+
+#login .inputs button:focus {
+  outline: none;
+}
+
+#login .inputs button:hover {
+  cursor: pointer;
+}
+
+#login .inputs #message {
+  background-color: #7045af;
+  padding: 8px 28px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+#login .inputs #message h2 {
+  text-align: center;
+  color: white;
+}
+
+#login .inputs #media {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+  margin: auto;
+}
+
+#login .inputs #media .media_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e14594;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  margin: 0 20px;
+  border-radius: 70px;
+  color: white;
+}
+
+#login .inputs #media .media_button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  #login .inputs {
+    width: 80%;
+  }
+}

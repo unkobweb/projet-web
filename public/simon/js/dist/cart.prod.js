@@ -1,0 +1,1 @@
+"use strict";var cart=new Vue({el:"#cart",methods:{removeProduct:function(e){console.log(e),fetch("/removeFromCart/"+e,{method:"POST"}).then(function(){document.location.reload(!0)})}}});

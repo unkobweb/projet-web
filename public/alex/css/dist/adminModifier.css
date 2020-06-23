@@ -1,0 +1,74 @@
+body {
+  background-color: #2b3595;
+}
+
+#container {
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 10px;
+  margin: auto;
+  width: 40%;
+  min-width: 770px;
+  color: white;
+  margin-top: 40px;
+}
+
+#container h1 {
+  text-align: center;
+}
+
+#container form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 150px;
+  margin-bottom: 25px;
+}
+
+#container form label,
+#container form input,
+#container form textarea {
+  margin-bottom: 10px;
+}
+
+#container form input {
+  background-color: #2b3595;
+  border: 2px solid #e14594;
+  padding: 5px;
+  color: white;
+  font-family: monospace;
+}
+
+#container form input::placeholder {
+  color: white;
+}
+
+#container form input:focus {
+  outline: none;
+}
+
+#container form textarea {
+  resize: vertical;
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+#container form textarea:focus {
+  outline: none;
+}
+
+#container form button {
+  background-color: #e14594;
+  color: white;
+  font-family: monospace;
+  padding: 5px;
+  border: 0;
+}
+
+#container form button:focus {
+  outline: none;
+}
+
+#container form button:hover {
+  cursor: pointer;
+}

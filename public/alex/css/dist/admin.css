@@ -1,0 +1,78 @@
+body {
+  background-color: #2b3595;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+#admin {
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 15px;
+  width: 80%;
+  min-width: 1000px;
+  margin: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#admin #dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#admin #dashboard .container {
+  width: 100%;
+  text-align: center;
+}
+
+#admin #dashboard .container .diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 440px;
+  margin: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+}
+
+#admin #dashboard .container .diagram span {
+  color: black;
+}
+
+#admin #dashboard .container .diagram #myChart {
+  max-width: 350px;
+  color: white;
+}
+
+#admin #members #container,
+#admin #marks #container,
+#admin #games #container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(225, 69, 148, 0.6);
+  border-radius: 20px;
+  padding: 5px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+#admin #members #container span,
+#admin #marks #container span,
+#admin #games #container span {
+  margin-bottom: 7px;
+}
+
+#admin #members #container span a,
+#admin #marks #container span a,
+#admin #games #container span a {
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 4px;
+  color: white;
+  text-decoration: none;
+}

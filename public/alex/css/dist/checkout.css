@@ -1,0 +1,63 @@
+body {
+  background-color: #2b3595;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.StripeElement {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#checkout {
+  margin: auto;
+  width: 400px;
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+#checkout label {
+  font-size: 30px;
+}
+
+#checkout #card-element {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#checkout button {
+  background-color: #e14594;
+  padding: 10px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+  font-family: monospace;
+}
+
+#checkout button:hover {
+  cursor: pointer;
+}

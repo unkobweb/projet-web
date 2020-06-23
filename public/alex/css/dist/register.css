@@ -1,0 +1,65 @@
+body {
+  background-color: #2b3595;
+}
+
+h1 {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.inputs label {
+  text-transform: uppercase;
+  color: white;
+  font-size: 25px;
+}
+
+.inputs input {
+  display: block;
+  margin: 20px 0px;
+  padding: 10px;
+  background-color: #182952;
+  border: 2px solid #e14594;
+  height: 20px;
+}
+
+.inputs input:focus {
+  outline: none;
+}
+
+.inputs button {
+  margin: auto;
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(112, 69, 175, 0.5);
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  font-family: monospace, sans-serif;
+  font-size: 16px;
+}
+
+.inputs button:focus {
+  outline: none;
+}
+
+.inputs button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+body {
+  background-color: #2b3595;
+}
+
+#profil {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
+#profil h2 {
+  font-size: 40px;
+}
+
+#profil label,
+#profil p {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#profil label:first-child {
+  margin-top: 24px;
+}
+
+#profil input {
+  font-size: 24px;
+  font-family: monospace;
+  margin-bottom: 25px;
+  padding: 10px;
+  width: 100%;
+  background-color: #182952;
+  border: 2px solid #e14594;
+  color: white;
+}
+
+#profil input:disabled {
+  color: lightgray;
+}
+
+#profil input:focus {
+  outline: none;
+}
+
+#profil #sender {
+  border: none;
+  padding: 10px;
+  background-color: #e14594;
+  color: white;
+  font-family: monospace;
+}

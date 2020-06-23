@@ -1,0 +1,105 @@
+body,
+html {
+  margin: 0;
+  font-family: Monospace, sans-serif;
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+input::placeholder,
+input[type="date"] {
+  color: white;
+}
+
+#logoUpPage {
+  display: none;
+}
+
+#navbar {
+  z-index: 5;
+  background-color: #182952;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+#navbar #logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+#navbar #logo img {
+  height: 30px;
+  margin-left: 10px;
+}
+
+#navbar #logo h1 {
+  margin: 0;
+  color: white;
+  margin-left: 20px;
+}
+
+#navbar nav {
+  margin-left: auto;
+}
+
+#navbar nav a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+#navbar nav .active {
+  color: #e14594;
+}
+
+@media screen and (max-width: 920px) {
+  #logoUpPage {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 15px auto;
+  }
+  #navbar {
+    background-color: #182952;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  #navbar #logo {
+    display: none;
+  }
+  #navbar nav {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  #navbar nav a {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

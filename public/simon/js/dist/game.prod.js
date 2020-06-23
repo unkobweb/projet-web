@@ -1,0 +1,1 @@
+"use strict";var game=new Vue({el:"#game",data:{id:0,quantity:0},methods:{buy:function(){fetch("/buy/"+this.id,{method:"POST"}).then(function(t){return t.json()}).then(function(t){console.log(t),"success"==t.status&&(window.location.href="/cart")})}},created:function(){var t=document.querySelector("#game");this.id=t.dataset.id,this.quantity=t.dataset.quantity}});
