@@ -48,13 +48,24 @@
       <div id="marks">
         <h2>Avis - <%=marks.length%> avis</h2>
         <div id="container">
-          <%marks.forEach(mark => {%> <%console.log(JSON.stringify(mark, null,
-          4))%>
+          <%marks.forEach(mark => {%>
           <span
             ><%=mark.User.id%> - <%=mark.User.username%> - <%=mark.Game.title%>
             <a href="/modifyMark/<%=mark.id%>">Modifer</a>
             <a href="/deleteMark/<%=mark.id%>">Supprimer</a></span
           >
+          <%});%>
+        </div>
+      </div>
+      <div id="games">
+        <h2>Jeux - <%=games.length%> jeux</h2>
+        <div id="container">
+          <%games.forEach(game => {%>
+          <span>
+            <%=game.title%> - <%=game.Plateform.name%>
+            <a href="/modifyGame/<%=game.id%>">Modifer</a>
+            <a href="/deleteGame/<%=game.id%>">Supprimer</a>
+          </span>
           <%});%>
         </div>
       </div>

@@ -39,6 +39,8 @@ h1 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex: 1;
+        height: 440px;
         span {
           color: black;
         }
@@ -53,7 +55,8 @@ h1 {
     }
   }
   #members,
-  #marks {
+  #marks,
+  #games {
     #container {
       display: flex;
       flex-direction: column;
