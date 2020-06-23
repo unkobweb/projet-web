@@ -1,0 +1,490 @@
+html, body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #061539;
+}
+
+#login, #register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#login .top-container, #register .top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#login .top-container .previous-page, #register .top-container .previous-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 20px;
+  color: #E14544;
+  background: linear-gradient(145deg, #06163d, #051333);
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+}
+
+#login .top-container .tgt-logo, #register .top-container .tgt-logo {
+  width: 597px;
+  height: 417px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login .top-container .tgt-logo .logo, #register .top-container .tgt-logo .logo {
+  width: 497.5px;
+  height: 347.5px;
+}
+
+#login .top-container .forgot-pass, #register .top-container .forgot-pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-right: 30px;
+  font-size: 20px;
+  color: #E14544;
+  background: linear-gradient(145deg, #06163d, #051333);
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+}
+
+#login .top-container .empty, #register .top-container .empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+#login .return-message, #register .return-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container, #register .bot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#login .bot-container .media-glo, #register .bot-container .media-glo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 250px;
+  margin: 100px;
+}
+
+#login .bot-container .media-glo .img-gl, #login .bot-container .media-glo .img-fb, #register .bot-container .media-glo .img-gl, #register .bot-container .media-glo .img-fb {
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
+}
+
+#login .bot-container .login-inputs, #register .bot-container .login-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .login-inputs .mail, #login .bot-container .login-inputs .passw, #register .bot-container .login-inputs .mail, #register .bot-container .login-inputs .passw {
+  font-family: Montserrat;
+  font-size: medium;
+  color: #E14544;
+}
+
+#login .bot-container .login-inputs .input-mail, #login .bot-container .login-inputs .input-pass, #register .bot-container .login-inputs .input-mail, #register .bot-container .login-inputs .input-pass {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .login-inputs .connect-button, #register .bot-container .login-inputs .connect-button {
+  color: #E14544;
+  width: 110px;
+  height: 50px;
+  font-family: Montserrat;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+}
+
+#login .bot-container .login-inputs ::placeholder, #register .bot-container .login-inputs ::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
+
+#login .bot-container .username-input, #register .bot-container .username-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#login .bot-container .username-input .username, #register .bot-container .username-input .username {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .username-input .inputU, #register .bot-container .username-input .inputU {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs, #register .bot-container .register-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .register-inputs .top-inputs, #register .bot-container .register-inputs .top-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#login .bot-container .register-inputs .top-inputs .pass .passw, #register .bot-container .register-inputs .top-inputs .pass .passw {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .top-inputs .pass .passput, #register .bot-container .register-inputs .top-inputs .pass .passput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass, #register .bot-container .register-inputs .top-inputs .confpass {
+  margin-left: 30px;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass .confirm-password, #register .bot-container .register-inputs .top-inputs .confpass .confirm-password {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .top-inputs .confpass .confpassput, #register .bot-container .register-inputs .top-inputs .confpass .confpassput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .mid-inputs, #register .bot-container .register-inputs .mid-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#login .bot-container .register-inputs .mid-inputs .mail .mailT, #register .bot-container .register-inputs .mid-inputs .mail .mailT {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .mid-inputs .mail .mailput, #register .bot-container .register-inputs .mid-inputs .mail .mailput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth, #register .bot-container .register-inputs .mid-inputs .birth {
+  margin-left: 30px;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth .date-of-birth, #register .bot-container .register-inputs .mid-inputs .birth .date-of-birth {
+  color: #E14544;
+  font-family: Montserrat;
+  font-size: small;
+}
+
+#login .bot-container .register-inputs .mid-inputs .birth .dateput, #register .bot-container .register-inputs .mid-inputs .birth .dateput {
+  font-family: Montserrat;
+  color: #D8FFFF;
+  width: 280px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #061539;
+  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+}
+
+#login .bot-container .register-inputs .bot-signup .signup, #register .bot-container .register-inputs .bot-signup .signup {
+  color: #E14544;
+  width: 110px;
+  height: 50px;
+  font-family: Montserrat;
+  margin-top: 200px;
+  margin-bottom: 60px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #06163d, #051333);
+  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+}
+
+#homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+}
+
+#homepage .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#homepage .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+
+#homepage .navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  box-shadow: 5px 5px 11px #051231,  -5px -5px 11px #071841;
+}
+
+#homepage .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  box-shadow: inset 5px 5px 10px #051230,  inset -5px -5px 10px #071842;
+}
+
+#homepage .navbar .search {
+  background-color: #061539;
+  border: none;
+}
+
+#homepage .trending, #homepage .sales {
+  display: flex;
+  flex-direction: column;
+}
+
+#homepage .trending .title, #homepage .sales .title {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: center;
+  color: #E14544;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  margin-left: 4%;
+}
+
+#homepage .trending .title .category, #homepage .sales .title .category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Montserrat;
+  height: 70px;
+  width: 300px;
+  margin: 0;
+  border-radius: 50px;
+  background: #061539;
+  box-shadow: 7px 7px 14px #05112d,  -7px -7px 14px #071945;
+}
+
+#homepage .trending .games, #homepage .sales .games {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 3%;
+}
+
+#homepage .trending .games .direction, #homepage .sales .games .direction {
+  width: 50px;
+  color: #E14544;
+}
+
+#homepage .trending .games .left, #homepage .sales .games .left {
+  padding-right: 3.8%;
+}
+
+#homepage .trending .games .right, #homepage .sales .games .right {
+  padding-left: 3.8%;
+}
+
+#homepage .trending .games .content, #homepage .sales .games .content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+#homepage .trending .games .content .jeu, #homepage .sales .games .content .jeu {
+  height: auto;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#homepage .trending .games .content .jeu .pochette, #homepage .sales .games .content .jeu .pochette {
+  height: 200px;
+  width: 400px;
+}
+
+#homepage .trending .games .content .jeu .plateforme, #homepage .sales .games .content .jeu .plateforme {
+  margin-top: 5%;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+#homepage .trending .games .content .jeu .plateforme .plateformLogo, #homepage .sales .games .content .jeu .plateforme .plateformLogo {
+  height: auto;
+  width: 30px;
+  text-align: center;
+}
+
+#homepage .trending .games .content .jeu .title-discount, #homepage .sales .games .content .jeu .title-discount {
+  color: #E14544;
+  font-size: 15px;
+}
+
+#homepage .trending .games .content .jeu .ammount, #homepage .sales .games .content .jeu .ammount {
+  color: #D8FFFF;
+  margin: 0;
+}
+
+#homepage .footer {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage .footer .copyright {
+  color: #D8FFFF;
+  font-size: 10px;
+}
+
+#gamepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+}
+
+#gamepage .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#gamepage .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+
+#gamepage .navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  box-shadow: 5px 5px 11px #051231,  -5px -5px 11px #071841;
+}
+
+#gamepage .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  box-shadow: inset 5px 5px 10px #051230,  inset -5px -5px 10px #071842;
+}
+
+#gamepage .navbar .search {
+  background-color: #061539;
+  border: none;
+}
