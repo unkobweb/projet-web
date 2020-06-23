@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modification du membre</title>
+    <link rel="stylesheet" href="/css/dist/adminModifier.css" />
+  </head>
+  <body>
+    <%- include('header.ejs')%>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
+    <div id="container">
+        <h1>Modification de <%=member.username%></h1>
+        <form action="/changeMember" method="POST">
+            <input type="hidden" name="id" value="<%=member.id%>" />
+            <label for="username">Identifiant</label>
+            <input type="text" name="username" value="<%=member.username%>" />
+            <label for="date_of_birth">Date de naissance</label>
+            <input
+            type="date"
+            name="date_of_birth"
+            value="<%=member.date_of_birth%>"
+            />
+            <button>Appliquer les changements</button>
+        </form> 
+      </form>
+    </div>
+  </body>
+</html>
