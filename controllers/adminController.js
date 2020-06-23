@@ -129,6 +129,12 @@ async function modifyGame(req, res) {
     res.redirect("/");
   }
 }
+async function changeGame(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+  } else {
+    res.send(501);
+  }
+}
 module.exports = {
   index,
   getDashInfo,
@@ -139,4 +145,5 @@ module.exports = {
   modifyGame,
   changeMember,
   changeMark,
+  changeGame,
 };
