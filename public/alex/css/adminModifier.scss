@@ -1,0 +1,70 @@
+//Colors
+$darkBlue: #182952;
+$blue: #2b3595;
+$purple: rgba(112, 69, 175, 0.5);
+$pink: #e14594;
+
+// Breakpoints
+$xsmall: 370px;
+$small: 700px;
+$medium: 920px;
+$large: 1590px;
+$xlargem: 1920px;
+
+body {
+  background-color: $blue;
+}
+
+#container {
+  background-color: $purple;
+  padding: 10px;
+  margin: auto;
+  width: 40%;
+  min-width: 770px;
+  color: white;
+  margin-top: 40px;
+  h1 {
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 150px;
+    margin-bottom: 25px;
+
+    label,
+    input {
+      margin-bottom: 10px;
+    }
+    input {
+      background-color: #2b3595;
+      border: 2px solid #e14594;
+      padding: 5px;
+      color: white;
+      font-family: monospace;
+
+      &::placeholder {
+        color: white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      background-color: #e14594;
+      color: white;
+      font-family: monospace;
+      padding: 5px;
+      border: 0;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
