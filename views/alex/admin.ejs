@@ -50,7 +50,8 @@
         <div id="container">
           <%marks.forEach(mark => {%>
           <span
-            ><%=mark.User.id%> - <%=mark.User.username%> - <%=mark.Game.title%>
+            ><%=mark.userId%> - <%=mark.User != null ? mark.User.username :
+            "Ancien utilisateur"%> - <%=mark.Game.title%>
             <a href="/modifyMark/<%=mark.id%>">Modifer</a>
             <a href="/deleteMark/<%=mark.id%>">Supprimer</a></span
           >
