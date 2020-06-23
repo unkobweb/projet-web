@@ -135,6 +135,13 @@ async function changeGame(req, res) {
     res.send(501);
   }
 }
+async function deleteGame(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+  } else {
+    res.send(501);
+  }
+}
+
 module.exports = {
   index,
   getDashInfo,
@@ -143,6 +150,7 @@ module.exports = {
   modifyMark,
   deleteMark,
   modifyGame,
+  deleteGame,
   changeMember,
   changeMark,
   changeGame,
