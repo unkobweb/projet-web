@@ -187,7 +187,11 @@ async function purchaseIndex(req, res) {
               model: Game,
               include: [
                 Plateform,
-                { model: Mark, required: false, userId: req.session.user.id },
+                {
+                  model: Mark,
+                  required: false,
+                  where: { userId: req.session.user.id },
+                },
               ],
             },
           ],
