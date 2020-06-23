@@ -135,6 +135,38 @@ async function createGame(req, res) {
     res.send(501);
   }
 }
+async function genKey(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    function genKey() {
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      let key = "";
+      for (let i = 0; i < 4; i++) {
+        for (let y = 0; y < 5; y++) {
+          key += chars[getRandomInt(getRandomInt(chars.length))];
+        }
+        if (i == 3) {
+          break;
+        } else {
+          key += "-";
+        }
+      }
+      return key;
+    }
+    for (let i = 0; i < req.body.number; i++) {
+      let key = genKey();
+      CdKey.create({
+        gameId: req.body.id,
+        cd_key: key,
+        is_used: false,
+      });
+    }
+  } else {
+    res.redirect("/");
+  }
+}
 async function modifyGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
     let game = await Game.findOne({ where: { id: req.params.id } });
@@ -186,4 +218,5 @@ module.exports = {
   changeMember,
   changeMark,
   changeGame,
+  genKey,
 };
