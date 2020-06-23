@@ -34,7 +34,8 @@ body {
 
     label,
     input,
-    textarea {
+    textarea,
+    select {
       margin-bottom: 10px;
     }
     input {
@@ -58,6 +59,20 @@ body {
       border: none;
       color: white;
       border-bottom: 2px solid white;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: white;
+      }
+    }
+    select {
+      background-color: #2b3595;
+      border: 2px solid #e14594;
+      padding: 5px;
+      color: white;
 
       &:focus {
         outline: none;
