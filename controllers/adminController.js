@@ -81,10 +81,21 @@ async function deleteMember(req, res) {
     res.send(501);
   }
 }
+async function modifyMark(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    res.render("modifyMark.ejs", {
+      session: req.session.user,
+      nbPage: 0,
+    });
+  } else {
+    res.redirect("/");
+  }
+}
 module.exports = {
   index,
   getDashInfo,
   modifyMember,
   deleteMember,
+  modifyMark,
   changeMember,
 };
