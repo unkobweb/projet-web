@@ -3,22 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/dist/style.css" rel="stylesheet"/>
     <title>To Games Together - <%=game.title%></title>
   </head>
   <body>
-    <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
-    if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
-    noteMax/(nbAvis || 1) %>
-    <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
-      <img src="/img/games/<%=game.slug%>.png" alt="" />
-      <h2><%=game.title%></h2>
-      <h4><%=game.price%></h4>
-      <h5><%=game.quantity%> jeux restants</h5>
-      <button :disabled="quantity <= 0" @click="buy">Acheter</button>
-      <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
-      <%game.Marks.forEach(avis => {%>
-      <p><%=JSON.stringify(avis)%></p>
-      <%});%>
+    <div id="gamepage" class="container">
+
+      <div class="home-logo">
+        <img class='logo' src='/img/logo/togames-together.png'/>
+      </div>
+
+      <nav class="navbar">
+        <a href="/" class="nav">
+          <p class="home">HOME</p>
+        </a>
+        <a href="/cart" class="nav">
+          <p class="cart">SHOPPING CART</p>
+        </a>
+        <a href="/login" class="nav">
+          <p class="login">LOGIN</p>
+        </a>
+        <a href="/register" class="nav">
+          <p class="register">REGISTER</p>
+        </a>
+        <a href="/profile" class="nav">
+          <p class="profile">PROFILE</p>
+        </a>
+        <!-- <input type="text" class="search" placeholder="Recherche"> -->
+      </nav>
+
+      <div class="content">
+        
+        <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
+          <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
+            if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
+            noteMax/(nbAvis || 1) %>
+          <h2><%=game.title%></h2>
+          <img src="/img/games/<%=game.slug%>.png" alt="" />
+          <h4><%=game.price%></h4>
+          <h5><%=game.quantity%> jeux restants</h5>
+          <button :disabled="quantity <= 0" @click="buy">Acheter</button>
+          <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
+          <%game.Marks.forEach(avis => {%>
+          <p><%=JSON.stringify(avis)%></p>
+          <%});%>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/js/game.js"></script>

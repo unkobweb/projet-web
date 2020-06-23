@@ -86,7 +86,7 @@
         </div>
 
         <div class="games">
-          <span class="direction left" @click="getNewGames('left','late')">Jeux précédents</span>
+          <span class="direction left" @click="getNewGames('left','late')">Prev</span>
 
           <div class="content">
             <div class="jeu" v-for="jeu in jeuxLate" @click="goToGame(jeu.id)">
@@ -99,7 +99,7 @@
             </div>
           </div>
 
-          <span class="direction right" @click="getNewGames('right','late')">Jeux suivants</span>
+          <span class="direction right" @click="getNewGames('right','late')">Next</span>
 
         </div>
 
@@ -112,7 +112,7 @@
         </div>
 
         <div class="games">
-          <span class="direction left" @click="getNewGames('left','late')">Jeux précédents</span>
+          <span class="direction left" @click="getNewGames('left','late')">Prev</span>
 
           <div class="content">
             <div class="jeu" v-for="jeu in jeuxDiscount" @click="goToGame(jeu.id)">
@@ -125,7 +125,7 @@
             </div>
           </div>
 
-          <span class="direction right" @click="getNewGames('right','late')">Jeux suivants</span>
+          <span class="direction right" @click="getNewGames('right','late')">Next</span>
 
         </div>
 

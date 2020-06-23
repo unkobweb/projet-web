@@ -383,15 +383,31 @@ html, body {
     }
 
     .trending, .sales {
+        display: flex;
+        flex-direction: column;
 
         .title {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: row;
+            align-items: start;
+            text-align: center;
             color: $orange;
-            
+            margin-top: 2%;
+            margin-bottom: 3%;
+            margin-left: 4%;
             .category {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 font-family: Montserrat;
+                height: 70px;
+                width: 300px;
+                margin: 0;
+                border-radius: 50px;
+                background: #061539;
+                box-shadow:  7px 7px 14px #05112d, 
+                            -7px -7px 14px #071945;
+
             }
         }
 
@@ -400,24 +416,35 @@ html, body {
             height: auto;
             display: flex;
             flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 3%;
+
+
             .direction {
                 width: 50px;
+                color: $orange;
             }
 
             .left{
                 padding-right: 3.8%;
             }
+            .right {
+                padding-left: 3.8%;
+            }
             .content {
+                width: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: row;
                 text-align: center;
-                justify-content: space-evenly;
+
                 .jeu {
                     height: auto;
                     width: 33%;
                     display: flex;
-                    flex-direction: column;
-                    padding-right: 4%;
+                    align-items: center;
+                    flex-direction: column;       
                     .pochette {
                         height: 200px;
                         width: 400px;
@@ -459,4 +486,50 @@ html, body {
         }
     }
 
+}
+
+#gamepage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat;
+
+    .home-logo {
+            width: 100%;
+            height: auto;
+            text-align: center;  
+
+            .logo {
+                width: 196px;
+                height: 136px;
+        }
+    }
+
+    .navbar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-radius: 0px;
+        background: linear-gradient(145deg, #051333, #06163d);
+        box-shadow:  5px 5px 11px #051231, 
+             -5px -5px 11px #071841;
+
+        .nav {
+            width: 20%;
+            text-align: center;
+            color: $orange;
+            text-decoration: none;
+            border-radius: 0px;
+            background: #061539;
+            box-shadow: inset 5px 5px 10px #051230, 
+            inset -5px -5px 10px #071842;
+
+        }
+
+        .search {
+            background-color: $fond;
+            border: none;
+        }
+    }  
 }
