@@ -63,8 +63,21 @@ async function modifyMember(req, res) {
     res.redirect("/");
   }
 }
+async function changeMember(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    console.log(req.body);
+    let user = await User.findOne({ where: { id: req.body.id } });
+    user.username = req.body.username;
+    user.date_of_birth = req.body.date_of_birth;
+    user.save();
+    res.redirect("/admin");
+  } else {
+    res.send(501);
+  }
+}
 module.exports = {
   index,
   getDashInfo,
   modifyMember,
+  changeMember,
 };
