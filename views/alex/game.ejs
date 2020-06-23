@@ -52,7 +52,7 @@
         <h2><%=game.Marks.length%> Avis</h2>
         <%game.Marks.forEach(avis => {%>
           <div class="mark">
-            <h4><%=avis.User.username%> - 
+            <h4><%=avis.User != null ? avis.User.username : "Ancien utilisateur"%> - 
               <%for(let i = 0; i < avis.mark; i++) {%>
                 <i class="fas fa-star"></i>
               <%} for (let i = 5; i > avis.mark; i--) {%>
