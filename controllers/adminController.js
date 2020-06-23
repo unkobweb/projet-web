@@ -6,6 +6,7 @@ const Product = require("../models").Product;
 const Mark = require("../models").Mark;
 const Game = require("../models").Game;
 const Plateform = require("../models").Plateform;
+const CdKey = require("../models").CdKey;
 
 async function index(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
@@ -121,9 +122,11 @@ async function deleteMark(req, res) {
 }
 async function addGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let plateforms = await Plateform.findAll();
     res.render("addGame.ejs", {
       session: req.session.user,
       nbPage: 0,
+      plateforms: plateforms,
     });
   } else {
     res.redirect("/");
@@ -228,6 +231,7 @@ module.exports = {
   changeMember,
   changeMark,
   changeGame,
+  addGame,
   createGame,
   genKey,
 };
