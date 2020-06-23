@@ -33,7 +33,8 @@ body {
     margin-bottom: 25px;
 
     label,
-    input {
+    input,
+    textarea {
       margin-bottom: 10px;
     }
     input {
@@ -46,6 +47,17 @@ body {
       &::placeholder {
         color: white;
       }
+
+      &:focus {
+        outline: none;
+      }
+    }
+    textarea {
+      resize: vertical;
+      background-color: transparent;
+      border: none;
+      color: white;
+      border-bottom: 2px solid white;
 
       &:focus {
         outline: none;
