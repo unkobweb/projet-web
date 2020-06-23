@@ -38,5 +38,6 @@ router.get("/admin", adminController.index);
 router.get("/getDashInfo", adminController.getDashInfo);
 router.get("/modifyMember/:id", adminController.modifyMember);
 router.post("/changeMember", urlencodedParser, adminController.changeMember);
+router.post("/deleteMember/:id", adminController.deleteMember);
 
 module.exports = router;

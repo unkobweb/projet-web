@@ -75,9 +75,16 @@ async function changeMember(req, res) {
     res.send(501);
   }
 }
+async function deleteMember(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+  } else {
+    res.send(501);
+  }
+}
 module.exports = {
   index,
   getDashInfo,
   modifyMember,
+  deleteMember,
   changeMember,
 };
