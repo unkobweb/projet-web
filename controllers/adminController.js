@@ -5,17 +5,20 @@ const Order = require("../models").Order;
 const Product = require("../models").Product;
 const Mark = require("../models").Mark;
 const Game = require("../models").Game;
+const Plateform = require("../models").Plateform;
 
 async function index(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
     let members = await User.findAll();
     let marks = await Mark.findAll({ include: [Game, User] });
+    let games = await Game.findAll({ include: [Plateform] });
     console.log(marks);
     res.render("admin", {
       session: req.session.user,
       nbPage: 7,
       members: members,
       marks: marks,
+      games: games,
     });
   } else {
     res.redirect("/");
