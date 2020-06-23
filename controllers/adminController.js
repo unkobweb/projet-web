@@ -77,6 +77,9 @@ async function changeMember(req, res) {
 }
 async function deleteMember(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let user = await User.findOne({ where: { id: req.params.id } });
+    user.destroy();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
