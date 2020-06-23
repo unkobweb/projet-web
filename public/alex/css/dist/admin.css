@@ -19,6 +19,15 @@ h1 {
   margin-bottom: 20px;
 }
 
+#admin #addGame {
+  color: white;
+  font-family: monospace;
+  background-color: #e14594;
+  padding: 7px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
 #admin #dashboard {
   display: flex;
   flex-direction: row;
