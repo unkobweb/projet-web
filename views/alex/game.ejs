@@ -51,7 +51,17 @@
       <div id="marks">
         <h2><%=game.Marks.length%> Avis</h2>
         <%game.Marks.forEach(avis => {%>
-          <p><%=JSON.stringify(avis)%></p>
+          <div class="mark">
+            <h4><%=avis.User.username%> - 
+              <%for(let i = 0; i < avis.mark; i++) {%>
+                <i class="fas fa-star"></i>
+              <%} for (let i = 5; i > avis.mark; i--) {%>
+                <i class="far fa-star"></i>
+              <%}%>  
+            </h4>
+            <p><%=avis.review%></p>
+            <hr>
+          </div>
         <%});%>
       </div>
     <%}%>
