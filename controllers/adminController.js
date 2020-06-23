@@ -91,6 +91,12 @@ async function modifyMark(req, res) {
     res.redirect("/");
   }
 }
+async function changeMark(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+  } else {
+    res.send(501);
+  }
+}
 module.exports = {
   index,
   getDashInfo,
@@ -98,4 +104,5 @@ module.exports = {
   deleteMember,
   modifyMark,
   changeMember,
+  changeMark,
 };

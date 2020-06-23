@@ -40,5 +40,6 @@ router.get("/modifyMember/:id", adminController.modifyMember);
 router.post("/changeMember", urlencodedParser, adminController.changeMember);
 router.post("/deleteMember/:id", adminController.deleteMember);
 router.get("/modifyMark/:id", adminController.modifyMark);
+router.post("/changeMark", urlencodedParser, adminController.changeMark);
 
 module.exports = router;
