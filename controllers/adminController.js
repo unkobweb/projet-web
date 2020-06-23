@@ -51,4 +51,20 @@ async function getDashInfo(req, res) {
   }
 }
 
-module.exports = { index, getDashInfo };
+async function modifyMember(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    let member = await User.findOne({ where: { id: req.params.id } });
+    res.render("modifyMember.ejs", {
+      session: req.session.user,
+      nbPage: 0,
+      member: member,
+    });
+  } else {
+    res.redirect("/");
+  }
+}
+module.exports = {
+  index,
+  getDashInfo,
+  modifyMember,
+};

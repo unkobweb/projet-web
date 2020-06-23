@@ -36,5 +36,6 @@ router.post("/addMark", gameController.createMark);
 router.post("/updateUser", urlencodedParser, profileController.updateUser);
 router.get("/admin", adminController.index);
 router.get("/getDashInfo", adminController.getDashInfo);
+router.get("/modifyMember/:id", adminController.modifyMember);
 
 module.exports = router;
