@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajouter un jeu</title>
+    <link rel="stylesheet" href="/css/dist/adminModifier.css">
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="/img/background/background.mp4" type="video/mp4" />
+    </video>
+    <div id="container">
+        <h1>Ajout de jeu</h1>
+        <form action="/createGame" method="POST">
+            <label for="title">Titre</label>
+            <input type="text" name="title"></input>
+            <textarea name="description" placeholder="Description"></textarea>
+            <label for="plateform">Plateforme</label>
+            <select name="plateform">
+                <%plateforms.forEach(plateform => {%>
+                    <option value="<%=plateform.id%>"><%=plateform.name%></option>
+                <%});%>
+            </select>
+            <label for="slug">Slug</label>
+            <input type="text" name="slug">
+            <label for="price">Prix</label>
+            <input type="text" name="price">
+            <label for="discount">Réduction (en %)</label>
+            <input type="text" name="discount">
+            <button>Ajouter le jeu</button>
+        </form> 
+      </form>
+    </div>
+  </body>
+</html>
