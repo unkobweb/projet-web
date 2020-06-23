@@ -86,9 +86,14 @@ async function deleteMember(req, res) {
 }
 async function modifyMark(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let mark = await Mark.findOne({
+      where: { id: req.params.id },
+      include: [User, Game],
+    });
     res.render("modifyMark.ejs", {
       session: req.session.user,
       nbPage: 0,
+      mark: mark,
     });
   } else {
     res.redirect("/");
