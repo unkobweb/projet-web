@@ -131,6 +131,16 @@ async function addGame(req, res) {
 }
 async function createGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    console.log(req.body);
+    Game.create({
+      title: req.body.title,
+      description: req.body.description,
+      slug: req.body.slug,
+      plateform_id: req.body.plateform,
+      price: parseFloat(req.body.price),
+      discount: parseInt(req.body.discount),
+    });
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
@@ -218,5 +228,6 @@ module.exports = {
   changeMember,
   changeMark,
   changeGame,
+  createGame,
   genKey,
 };
