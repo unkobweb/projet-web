@@ -145,6 +145,15 @@ async function modifyGame(req, res) {
 }
 async function changeGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.body.id } });
+    game.title = req.body.title;
+    game.description = req.body.description;
+    game.slug = req.body.slug;
+    game.plateform_id = req.body.plateform;
+    game.price = parseFloat(req.body.price);
+    game.discount = parseInt(req.body.discount);
+    game.save();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
