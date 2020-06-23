@@ -103,6 +103,16 @@ async function deleteMark(req, res) {
     res.send(501);
   }
 }
+async function addGame(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    res.render("addGame.ejs", {
+      session: req.session.user,
+      nbPage: 0,
+    });
+  } else {
+    res.redirect("/");
+  }
+}
 module.exports = {
   index,
   getDashInfo,
