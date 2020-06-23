@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href="/css/dist/style.css" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link href="/css/dist/style.css" rel="stylesheet" />
     <title>To Games Together - <%=game.title%></title>
   </head>
   <body>
+    <%game.quantity = game.CdKeys.length%>
     <div id="gamepage" class="container">
-
       <div class="home-logo">
-        <img class='logo' src='/img/logo/togames-together.png'/>
+        <img class="logo" src="/img/logo/togames-together.png" />
       </div>
 
       <nav class="navbar">
@@ -34,11 +37,14 @@
       </nav>
 
       <div class="content">
-        
-        <div id="game" data-id="<%=game.id%>" data-quantity="<%=game.quantity%>">
+        <div
+          id="game"
+          data-id="<%=game.id%>"
+          data-quantity="<%=game.quantity%>"
+        >
           <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
-            if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
-            noteMax/(nbAvis || 1) %>
+          if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
+          noteMax/(nbAvis || 1) %>
           <h2><%=game.title%></h2>
           <img src="/img/games/<%=game.slug%>.png" alt="" />
           <h4><%=game.price%></h4>
