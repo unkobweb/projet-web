@@ -119,6 +119,16 @@ async function createGame(req, res) {
     res.send(501);
   }
 }
+async function modifyGame(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    res.render("modifyGame.ejs", {
+      session: req.session.user,
+      nbPage: 0,
+    });
+  } else {
+    res.redirect("/");
+  }
+}
 module.exports = {
   index,
   getDashInfo,
@@ -126,6 +136,7 @@ module.exports = {
   deleteMember,
   modifyMark,
   deleteMark,
+  modifyGame,
   changeMember,
   changeMark,
 };

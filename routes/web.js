@@ -42,5 +42,6 @@ router.post("/deleteMember/:id", adminController.deleteMember);
 router.get("/modifyMark/:id", adminController.modifyMark);
 router.post("/changeMark", urlencodedParser, adminController.changeMark);
 router.post("/deleteMark/:id", adminController.deleteMark);
+router.get("/modifyGame/:id", adminController.modifyGame);
 
 module.exports = router;
