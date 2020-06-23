@@ -135,9 +135,13 @@ async function createGame(req, res) {
 }
 async function modifyGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.params.id } });
+    let plateforms = await Plateform.findAll();
     res.render("modifyGame.ejs", {
       session: req.session.user,
       nbPage: 0,
+      game: game,
+      plateforms: plateforms,
     });
   } else {
     res.redirect("/");
