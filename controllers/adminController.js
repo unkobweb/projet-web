@@ -113,6 +113,12 @@ async function addGame(req, res) {
     res.redirect("/");
   }
 }
+async function createGame(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+  } else {
+    res.send(501);
+  }
+}
 module.exports = {
   index,
   getDashInfo,
