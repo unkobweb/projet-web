@@ -69,7 +69,10 @@ async function changeMember(req, res) {
     console.log(req.body);
     let user = await User.findOne({ where: { id: req.body.id } });
     user.username = req.body.username;
-    user.date_of_birth = req.body.date_of_birth;
+    if (req.body.date_of_birth != "") {
+      user.date_of_birth = req.body.date_of_birth;
+    }
+    user.role = parseInt(req.body.role);
     user.save();
     res.redirect("/admin");
   } else {
