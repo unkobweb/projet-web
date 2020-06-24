@@ -23,6 +23,11 @@
             name="date_of_birth"
             value="<%=member.date_of_birth%>"
             />
+            <label for="role">Role</label>
+            <select name="role">
+              <option value="0" <%=member.role == 0 ? "selected" : ""%>>Utilisateur</option>
+              <option value="1" <%=member.role == 1 ? "selected" : ""%>>Administrateur</option>
+            </select>
             <button>Appliquer les changements</button>
         </form> 
       </form>
