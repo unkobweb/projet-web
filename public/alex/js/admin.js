@@ -28,6 +28,13 @@ let admin = new Vue({
       }
       return { sortedDays, sortedSales };
     }
+    function fixedTwo(array) {
+      let last = [];
+      array.forEach((item) => {
+        last.push(item.toFixed(2));
+      });
+      return last;
+    }
     let sales = [
       {
         day: "Dimanche",
@@ -155,7 +162,7 @@ let admin = new Vue({
                   "rgba(231, 76, 60, 0.8)",
                 ],
                 borderColor: "rgb(255, 99, 132)",
-                data: sort(orders).sortedSales,
+                data: fixedTwo(sort(orders).sortedSales),
               },
             ],
           },

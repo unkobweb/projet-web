@@ -54,7 +54,10 @@ async function checkout(req, res) {
 }
 
 async function updateUser(req, res) {
-  let currentUser = await User.findOne({ where: { id: req.session.user.id } });
+  let currentUser = await User.findOne({
+    where: { id: req.session.user.id },
+    include: [Cart],
+  });
   currentUser.username = req.body.username;
   currentUser.date_of_birth = req.body.birthdate;
   currentUser.save();

@@ -11,5 +11,34 @@
     <video id="bgvid" playsinline autoplay muted loop>
       <source src="/img/background/background.mp4" type="video/mp4" />
     </video>
+    <div id="container">
+      <h1>Ajout de jeu</h1>
+      <form action="/createGame" method="POST">
+          <label for="title">Titre</label>
+          <input type="text" name="title" value="<%=game.title%>"></input>
+          <textarea name="description" placeholder="Description"><%=game.description%></textarea>
+          <label for="plateform">Plateforme</label>
+          <select name="plateform">
+              <%plateforms.forEach(plateform => {%>
+                  <option value="<%=plateform.id%>" <%game.plateform_id == plateform.id ? 'selected' : ""%>><%=plateform.name%></option>
+              <%});%>
+          </select>
+          <label for="slug">Slug</label>
+          <input type="text" name="slug" value="<%=game.slug%>">
+          <label for="price">Prix</label>
+          <input type="text" name="price" value="<%=game.price%>">
+          <label for="discount">Réduction (en %)</label>
+          <input type="text" name="discount" value="<%=game.discount%>">
+          <button>Ajouter le jeu</button>
+      </form> 
+      <form action="/genKey" method="POST">
+        <input type="hidden" name="id" value="<%=game.id%>">
+        <span>
+          Nombre de clés à générer : 
+          <input type="text" name="number" id="nbKey">
+        </span>
+        <button>Générer les clés</button>
+      </form>
+    </div>
   </body>
 </html>

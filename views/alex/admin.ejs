@@ -59,7 +59,10 @@
         </div>
       </div>
       <div id="games">
-        <h2>Jeux - <%=games.length%> jeux</h2>
+        <h2>
+          Jeux - <%=games.length%> jeux
+          <a href="/addGame" id="addGame">Ajouter un jeu</a>
+        </h2>
         <div id="container">
           <%games.forEach(game => {%>
           <span>

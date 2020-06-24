@@ -6,6 +6,7 @@ const Product = require("../models").Product;
 const Mark = require("../models").Mark;
 const Game = require("../models").Game;
 const Plateform = require("../models").Plateform;
+const CdKey = require("../models").CdKey;
 
 async function index(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
@@ -68,7 +69,10 @@ async function changeMember(req, res) {
     console.log(req.body);
     let user = await User.findOne({ where: { id: req.body.id } });
     user.username = req.body.username;
-    user.date_of_birth = req.body.date_of_birth;
+    if (req.body.date_of_birth != "") {
+      user.date_of_birth = req.body.date_of_birth;
+    }
+    user.role = parseInt(req.body.role);
     user.save();
     res.redirect("/admin");
   } else {
@@ -113,15 +117,19 @@ async function changeMark(req, res) {
 }
 async function deleteMark(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let mark = await Mark.findOne({ where: { id: req.params.id } });
+    mark.destroy();
   } else {
     res.send(501);
   }
 }
 async function addGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let plateforms = await Plateform.findAll();
     res.render("addGame.ejs", {
       session: req.session.user,
       nbPage: 0,
+      plateforms: plateforms,
     });
   } else {
     res.redirect("/");
@@ -129,15 +137,61 @@ async function addGame(req, res) {
 }
 async function createGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    console.log(req.body);
+    Game.create({
+      title: req.body.title,
+      description: req.body.description,
+      slug: req.body.slug,
+      plateform_id: req.body.plateform,
+      price: parseFloat(req.body.price),
+      discount: parseInt(req.body.discount),
+    });
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
 }
+async function genKey(req, res) {
+  if (req.session.user != undefined && req.session.user.role > 0) {
+    function genKey() {
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+      let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      let key = "";
+      for (let i = 0; i < 4; i++) {
+        for (let y = 0; y < 5; y++) {
+          key += chars[getRandomInt(getRandomInt(chars.length))];
+        }
+        if (i == 3) {
+          break;
+        } else {
+          key += "-";
+        }
+      }
+      return key;
+    }
+    for (let i = 0; i < req.body.number; i++) {
+      let key = genKey();
+      CdKey.create({
+        gameId: req.body.id,
+        cd_key: key,
+        is_used: false,
+      });
+    }
+  } else {
+    res.redirect("/");
+  }
+}
 async function modifyGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.params.id } });
+    let plateforms = await Plateform.findAll();
     res.render("modifyGame.ejs", {
       session: req.session.user,
       nbPage: 0,
+      game: game,
+      plateforms: plateforms,
     });
   } else {
     res.redirect("/");
@@ -145,12 +199,24 @@ async function modifyGame(req, res) {
 }
 async function changeGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.body.id } });
+    game.title = req.body.title;
+    game.description = req.body.description;
+    game.slug = req.body.slug;
+    game.plateform_id = req.body.plateform;
+    game.price = parseFloat(req.body.price);
+    game.discount = parseInt(req.body.discount);
+    game.save();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
 }
 async function deleteGame(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
+    let game = await Game.findOne({ where: { id: req.params.id } });
+    game.destroy();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
@@ -168,4 +234,7 @@ module.exports = {
   changeMember,
   changeMark,
   changeGame,
+  addGame,
+  createGame,
+  genKey,
 };
