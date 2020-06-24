@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -41,15 +42,51 @@
           <% let noteMax = 0; let nbAvis = 0; for (let avis of game.Marks){
           if(avis.mark > 0){ noteMax += avis.mark; nbAvis++; } } let moyenne =
           noteMax/(nbAvis || 1) %>
-          <h2><%=game.title%></h2>
-          <img src="/img/games/<%=game.slug%>.png" alt="" />
-          <h4><%=game.price%></h4>
-          <h5><%=game.quantity%> jeux restants</h5>
-          <button :disabled="quantity <= 0" @click="buy">Acheter</button>
-          <h2>Avis - <%=moyenne%>/5 (<%=nbAvis%> avis)</h2>
-          <%game.Marks.forEach(avis => {%>
-          <p><%=JSON.stringify(avis)%></p>
-          <%});%>
+          <div class="info">
+            <h2 class="title"><%=game.title%></h2>
+            <img src="/img/games/<%=game.slug%>.png" alt="" />
+            <div id="plateform">
+              <img src="/img/plateforms/<%=game.Plateform.slug%>_logo.png" id="plateformLogo">
+              <span><%=game.Plateform.name%></span>
+            </div>
+            <div class="price-discount">
+              <h4 class="first-price"><%=game.price%></h4>
+              <h5 class="discount">-<%=game.discount%>%</h5>
+            </div>
+            <h3 class="final-price">Prix : <%=(game.price-(game.price*(game.discount/100))).toFixed(2)%>€</h3>
+            <h5 class="quantity"><%=game.quantity > 0 ? game.quantity+" jeux restants" : "Rupture de stock !"%></h5>
+            <div class="addToCart <%=game.quantity < 1 ? "disabled" : ""%>" @click="buy">
+              <i class="fas fa-cart-plus"></i><span>Ajouter au panier</span>
+            </div>
+            <h2 class="average">
+              Avis moyens : <%=nbAvis > 0 ? moyenne+"/5 ("+nbAvis+" avis)":"Aucun "+
+              "avis" %>
+            </h2>
+          </div>
+          <div id="desc">
+            <div class="description">
+              <h2>Description</h2>
+              <p><%=game.description%></p>
+            </div>
+          </div>
+          <%if (game.Marks.length > 0) {%>
+            <div id="marks">
+              <h2><%=game.Marks.length%> Avis</h2>
+              <%game.Marks.forEach(avis => {%>
+                <div class="mark">
+                  <h4><%=avis.User != null ? avis.User.username : "Ancien utilisateur"%> - 
+                    <%for(let i = 0; i < avis.mark; i++) {%>
+                      <i class="fas fa-star"></i>
+                    <%} for (let i = 5; i > avis.mark; i--) {%>
+                      <i class="far fa-star"></i>
+                    <%}%>  
+                  </h4>
+                  <p><%=avis.review%></p>
+                  <hr>
+                </div>
+              <%});%>
+            </div>
+          <%}%>
         </div>
       </div>
     </div>

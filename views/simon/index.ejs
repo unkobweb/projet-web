@@ -8,53 +8,6 @@
     <title>To Games Together</title>
   </head>
   <body>
-    <!-- <div id="homepage">
-      <h1 class="category">Nouveautés</h1>
-      <span class="direction" @click="getNewGames('left','late')"
-        >Jeux précédents</span
-      >
-      <div class="jeu" v-for="jeu in jeuxLate" @click="goToGame(jeu.id)">
-        <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette" />
-        <img
-          :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'"
-          :alt="jeu.Plateform.slug"
-          class="plateformLogo"
-        />
-        <h2>
-          {{ jeu.title }}
-          <span class="discount">-{{ jeu.discount }}%</span>
-        </h2>
-        <h4>
-          {{ (jeu.price - jeu.price * (jeu.discount / 100)).toFixed(2) }}€
-        </h4>
-      </div>
-      <span class="direction" @click="getNewGames('right','late')"
-        >Jeux suivants</span
-      >
-      <h1 class="category">Soldes</h1>
-      <span class="direction" @click="getNewGames('left','discount')"
-        >Jeux précédents</span
-      >
-      <div class="jeu" v-for="jeu in jeuxDiscount" @click="goToGame(jeu.id)">
-        <img :src="'/img/games/'+jeu.slug+'.png'" class="pochette" />
-        <img
-          :src="'/img/plateforms/'+jeu.Plateform.slug+'_logo.png'"
-          :alt="jeu.Plateform.slug"
-          class="plateformLogo"
-        />
-        <h2>
-          {{ jeu.title }}
-          <span class="discount">-{{ jeu.discount }}%</span>
-        </h2>
-        <h4>
-          {{ (jeu.price - jeu.price * (jeu.discount / 100)).toFixed(2) }}€
-        </h4>
-      </div>
-      <span class="direction" @click="getNewGames('right','discount')"
-        >Jeux suivants</span
-      >
-    </div> -->
-
     <div id="homepage" class="container">
       <div class="home-logo">
         <img class="logo" src="/img/logo/togames-together.png" />

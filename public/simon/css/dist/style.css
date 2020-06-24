@@ -19,6 +19,10 @@ html, body {
   justify-content: space-between;
 }
 
+#login .top-container a, #register .top-container a {
+  text-decoration: none;
+}
+
 #login .top-container .previous-page, #register .top-container .previous-page {
   display: flex;
   justify-content: center;
@@ -29,6 +33,7 @@ html, body {
   margin-left: 30px;
   font-size: 20px;
   color: #E14544;
+  text-decoration: none;
   background: linear-gradient(145deg, #06163d, #051333);
   border-radius: 10px;
   box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
@@ -450,7 +455,7 @@ html, body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-family: Montserrat;
+  font-family: 'Montserrat';
 }
 
 #gamepage .home-logo {
@@ -487,4 +492,141 @@ html, body {
 #gamepage .navbar .search {
   background-color: #061539;
   border: none;
+}
+
+#gamepage .content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+#gamepage .content #game {
+  width: 100%;
+  height: auto;
+}
+
+#gamepage .content #game .info {
+  width: 100%;
+  height: auto;
+}
+
+#gamepage .content #game .info .title {
+  color: #E14544;
+}
+
+#gamepage .content #game .info .plateform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50px;
+}
+
+#gamepage .content #game .info .plateform img {
+  height: 50px;
+  width: 50px;
+}
+
+#gamepage .content #game .info .plateform span {
+  color: #D8FFFF;
+}
+
+#gamepage .content #game .info .price-discount {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#gamepage .content #game .info .price-discount .first-price {
+  color: #D8FFFF;
+  font-size: 30px;
+}
+
+#gamepage .content #game .info .price-discount .discount {
+  color: #D8FFFF;
+  font-size: 20px;
+}
+
+#gamepage .content #game .info .final-price {
+  color: #E14544;
+  font-size: 45px;
+  margin: 0;
+}
+
+#gamepage .content #game .info .quantity {
+  color: #D8FFFF;
+  font-size: 18px;
+  margin: 0;
+}
+
+#gamepage .content #game .info .addToCart {
+  margin-top: 3%;
+  height: 50px;
+  width: 100%;
+  color: #E14544;
+}
+
+#gamepage .content #game .info .addToCart .fas {
+  width: 30px;
+  height: 30px;
+}
+
+#gamepage .content #game .info .average {
+  color: #E14544;
+}
+
+#gamepage .content #game #desc {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#gamepage .content #game #desc .description {
+  display: flex;
+  width: 30%;
+  height: auto;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#gamepage .content #game #desc .description h2 {
+  color: #D8FFFF;
+}
+
+#gamepage .content #game #desc .description p {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  color: #D8FFFF;
+}
+
+#gamepage .content #game #marks {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#gamepage .content #game #marks h2 {
+  color: #D8FFFF;
+}
+
+#gamepage .content #game #marks .mark h4 {
+  color: #D8FFFF;
+}
+
+#gamepage .content #game #marks .mark p {
+  color: #D8FFFF;
 }
