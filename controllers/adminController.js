@@ -119,6 +119,7 @@ async function deleteMark(req, res) {
   if (req.session.user != undefined && req.session.user.role > 0) {
     let mark = await Mark.findOne({ where: { id: req.params.id } });
     mark.destroy();
+    res.redirect("/admin");
   } else {
     res.send(501);
   }
