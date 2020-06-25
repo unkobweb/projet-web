@@ -67,4 +67,15 @@ h1 {
       cursor: pointer;
     }
   }
+  #message {
+    background-color: $purple;
+    padding: 8px 28px;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    h2 {
+      text-align: center;
+      color: white;
+    }
+  }
 }

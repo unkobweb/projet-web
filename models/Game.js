@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       price: DataTypes.FLOAT,
       discount: DataTypes.INTEGER,
       plateform_id: DataTypes.INTEGER,
+      tweetedDiscount: DataTypes.BOOLEAN,
+      tweetedLate: DataTypes.BOOLEAN,
     },
     {}
   );
