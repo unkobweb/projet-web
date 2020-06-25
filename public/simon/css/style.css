@@ -1,4 +1,6 @@
 html, body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 0;
   margin: 0;
@@ -8,49 +10,79 @@ html, body {
 }
 
 #login, #register {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
 }
-
 #login .top-container, #register .top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-
+#login .top-container a, #register .top-container a {
+  text-decoration: none;
+}
 #login .top-container .previous-page, #register .top-container .previous-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 50px;
   height: 50px;
   margin-top: 30px;
   margin-left: 30px;
   font-size: 20px;
   color: #E14544;
+  text-decoration: none;
   background: linear-gradient(145deg, #06163d, #051333);
   border-radius: 10px;
-  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+  -webkit-box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+          box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
 }
-
 #login .top-container .tgt-logo, #register .top-container .tgt-logo {
   width: 597px;
   height: 417px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-
 #login .top-container .tgt-logo .logo, #register .top-container .tgt-logo .logo {
   width: 497.5px;
   height: 347.5px;
 }
-
 #login .top-container .forgot-pass, #register .top-container .forgot-pass {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 50px;
   height: 50px;
   margin-top: 30px;
@@ -59,66 +91,97 @@ html, body {
   color: #E14544;
   background: linear-gradient(145deg, #06163d, #051333);
   border-radius: 10px;
-  box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+  -webkit-box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
+          box-shadow: 8px 8px 16px #030c1f, -8px -8px 16px #091e53;
 }
-
 #login .top-container .empty, #register .top-container .empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 50px;
   height: 50px;
   margin-top: 30px;
   margin-right: 30px;
 }
-
 #login .return-message, #register .return-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container, #register .bot-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-
 #login .bot-container .media-glo, #register .bot-container .media-glo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 250px;
   margin: 100px;
 }
-
 #login .bot-container .media-glo .img-gl, #login .bot-container .media-glo .img-fb, #register .bot-container .media-glo .img-gl, #register .bot-container .media-glo .img-fb {
   height: 100px;
   width: 100px;
   border: none;
   border-radius: 50%;
   background: linear-gradient(145deg, #06163d, #051333);
-  box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
+  -webkit-box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
+          box-shadow: 10px 10px 17px #030c1f, -10px -10px 17px #091e53;
 }
-
 #login .bot-container .login-inputs, #register .bot-container .login-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
-
 #login .bot-container .login-inputs .mail, #login .bot-container .login-inputs .passw, #register .bot-container .login-inputs .mail, #register .bot-container .login-inputs .passw {
   font-family: Montserrat;
   font-size: medium;
   color: #E14544;
 }
-
 #login .bot-container .login-inputs .input-mail, #login .bot-container .login-inputs .input-pass, #register .bot-container .login-inputs .input-mail, #register .bot-container .login-inputs .input-pass {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -128,9 +191,9 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .login-inputs .connect-button, #register .bot-container .login-inputs .connect-button {
   color: #E14544;
   width: 110px;
@@ -142,30 +205,56 @@ html, body {
   outline: none;
   border-radius: 10px;
   background: linear-gradient(145deg, #06163d, #051333);
-  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+  -webkit-box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+          box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
 }
-
+#login .bot-container .login-inputs ::-webkit-input-placeholder, #register .bot-container .login-inputs ::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
+#login .bot-container .login-inputs ::-moz-placeholder, #register .bot-container .login-inputs ::-moz-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
+#login .bot-container .login-inputs :-ms-input-placeholder, #register .bot-container .login-inputs :-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
+#login .bot-container .login-inputs ::-ms-input-placeholder, #register .bot-container .login-inputs ::-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-family: Montserrat;
+}
 #login .bot-container .login-inputs ::placeholder, #register .bot-container .login-inputs ::placeholder {
   color: white;
   opacity: 0.5;
   font-family: Montserrat;
 }
-
 #login .bot-container .username-input, #register .bot-container .username-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   margin-bottom: 30px;
 }
-
 #login .bot-container .username-input .username, #register .bot-container .username-input .username {
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container .username-input .inputU, #register .bot-container .username-input .inputU {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -175,31 +264,46 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .register-inputs, #register .bot-container .register-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
-
 #login .bot-container .register-inputs .top-inputs, #register .bot-container .register-inputs .top-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
-
 #login .bot-container .register-inputs .top-inputs .pass .passw, #register .bot-container .register-inputs .top-inputs .pass .passw {
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container .register-inputs .top-inputs .pass .passput, #register .bot-container .register-inputs .top-inputs .pass .passput {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -209,19 +313,17 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .register-inputs .top-inputs .confpass, #register .bot-container .register-inputs .top-inputs .confpass {
   margin-left: 30px;
 }
-
 #login .bot-container .register-inputs .top-inputs .confpass .confirm-password, #register .bot-container .register-inputs .top-inputs .confpass .confirm-password {
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container .register-inputs .top-inputs .confpass .confpassput, #register .bot-container .register-inputs .top-inputs .confpass .confpassput {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -231,24 +333,31 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .register-inputs .mid-inputs, #register .bot-container .register-inputs .mid-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   margin-bottom: 30px;
 }
-
 #login .bot-container .register-inputs .mid-inputs .mail .mailT, #register .bot-container .register-inputs .mid-inputs .mail .mailT {
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container .register-inputs .mid-inputs .mail .mailput, #register .bot-container .register-inputs .mid-inputs .mail .mailput {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -258,19 +367,17 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .register-inputs .mid-inputs .birth, #register .bot-container .register-inputs .mid-inputs .birth {
   margin-left: 30px;
 }
-
 #login .bot-container .register-inputs .mid-inputs .birth .date-of-birth, #register .bot-container .register-inputs .mid-inputs .birth .date-of-birth {
   color: #E14544;
   font-family: Montserrat;
   font-size: small;
 }
-
 #login .bot-container .register-inputs .mid-inputs .birth .dateput, #register .bot-container .register-inputs .mid-inputs .birth .dateput {
   font-family: Montserrat;
   color: #D8FFFF;
@@ -280,9 +387,9 @@ html, body {
   outline: none;
   border-radius: 4px;
   background: #061539;
-  box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+  -webkit-box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
+          box-shadow: inset 10px 10px 15px #051230, inset -10px -10px 15px #071842;
 }
-
 #login .bot-container .register-inputs .bot-signup .signup, #register .bot-container .register-inputs .bot-signup .signup {
   color: #E14544;
   width: 110px;
@@ -294,5 +401,536 @@ html, body {
   outline: none;
   border-radius: 10px;
   background: linear-gradient(145deg, #06163d, #051333);
-  box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+  -webkit-box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
+          box-shadow: 5px 5px 10px #030c1f, -5px -5px 10px #091e53;
 }
+
+#homepage {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: Montserrat;
+}
+#homepage .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+#homepage .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+#homepage .navbar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  -webkit-box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+          box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+}
+#homepage .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  -webkit-box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+          box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+}
+#homepage .navbar .search {
+  background-color: #061539;
+  border: none;
+}
+#homepage .trending, #homepage .sales {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#homepage .trending .title, #homepage .sales .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  text-align: center;
+  color: #E14544;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  margin-left: 4%;
+}
+#homepage .trending .title .category, #homepage .sales .title .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: Montserrat;
+  height: 70px;
+  width: 300px;
+  margin: 0;
+  border-radius: 50px;
+  background: #061539;
+  -webkit-box-shadow: 7px 7px 14px #05112d, -7px -7px 14px #071945;
+          box-shadow: 7px 7px 14px #05112d, -7px -7px 14px #071945;
+}
+#homepage .trending .games, #homepage .sales .games {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3%;
+}
+#homepage .trending .games .direction, #homepage .sales .games .direction {
+  width: 50px;
+  color: #E14544;
+}
+#homepage .trending .games .left, #homepage .sales .games .left {
+  padding-right: 3.8%;
+}
+#homepage .trending .games .right, #homepage .sales .games .right {
+  padding-left: 3.8%;
+}
+#homepage .trending .games .content, #homepage .sales .games .content {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+#homepage .trending .games .content .jeu, #homepage .sales .games .content .jeu {
+  height: auto;
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#homepage .trending .games .content .jeu .pochette, #homepage .sales .games .content .jeu .pochette {
+  height: 200px;
+  width: 400px;
+}
+#homepage .trending .games .content .jeu .plateforme, #homepage .sales .games .content .jeu .plateforme {
+  margin-top: 5%;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+#homepage .trending .games .content .jeu .plateforme .plateformLogo, #homepage .sales .games .content .jeu .plateforme .plateformLogo {
+  height: auto;
+  width: 30px;
+  text-align: center;
+}
+#homepage .trending .games .content .jeu .title-discount, #homepage .sales .games .content .jeu .title-discount {
+  color: #E14544;
+  font-size: 15px;
+}
+#homepage .trending .games .content .jeu .ammount, #homepage .sales .games .content .jeu .ammount {
+  color: #D8FFFF;
+  margin: 0;
+}
+#homepage .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#homepage .footer .copyright {
+  color: #D8FFFF;
+  font-size: 10px;
+}
+
+#gamepage {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "Montserrat";
+}
+#gamepage .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+#gamepage .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+#gamepage .navbar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  -webkit-box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+          box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+}
+#gamepage .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  -webkit-box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+          box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+}
+#gamepage .navbar .search {
+  background-color: #061539;
+  border: none;
+}
+#gamepage .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+#gamepage .content #game {
+  width: 100%;
+  height: auto;
+}
+#gamepage .content #game .info {
+  width: 100%;
+  height: auto;
+}
+#gamepage .content #game .info .title {
+  color: #E14544;
+}
+#gamepage .content #game .info .plateform {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 50px;
+}
+#gamepage .content #game .info .plateform img {
+  height: 50px;
+  width: 50px;
+}
+#gamepage .content #game .info .plateform span {
+  color: #D8FFFF;
+}
+#gamepage .content #game .info .price-discount {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#gamepage .content #game .info .price-discount .first-price {
+  color: #D8FFFF;
+  font-size: 30px;
+}
+#gamepage .content #game .info .price-discount .discount {
+  color: #D8FFFF;
+  font-size: 20px;
+}
+#gamepage .content #game .info .final-price {
+  color: #E14544;
+  font-size: 45px;
+  margin: 0;
+}
+#gamepage .content #game .info .quantity {
+  color: #D8FFFF;
+  font-size: 18px;
+  margin: 0;
+}
+#gamepage .content #game .info .addToCart {
+  margin-top: 3%;
+  height: 50px;
+  width: 100%;
+  color: #E14544;
+}
+#gamepage .content #game .info .addToCart .fas {
+  width: 30px;
+  height: 30px;
+}
+#gamepage .content #game .info .average {
+  color: #E14544;
+}
+#gamepage .content #game #desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#gamepage .content #game #desc .description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#gamepage .content #game #desc .description h2 {
+  color: #D8FFFF;
+}
+#gamepage .content #game #desc .description p {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  color: #D8FFFF;
+}
+#gamepage .content #game #marks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#gamepage .content #game #marks h2 {
+  color: #D8FFFF;
+}
+#gamepage .content #game #marks .mark h4 {
+  color: #D8FFFF;
+}
+#gamepage .content #game #marks .mark p {
+  color: #D8FFFF;
+}
+
+#cart {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "Montserrat";
+}
+#cart .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+#cart .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+#cart .navbar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  -webkit-box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+          box-shadow: 5px 5px 11px #051231, -5px -5px 11px #071841;
+}
+#cart .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  -webkit-box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+          box-shadow: inset 5px 5px 10px #051230, inset -5px -5px 10px #071842;
+}
+#cart .navbar .search {
+  background-color: #061539;
+  border: none;
+}
+#cart h1 {
+  color: #E14544;
+}
+#cart .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 10px;
+  border-radius: 3px;
+}
+#cart .content .fa-times {
+  color: #e74c3c;
+  cursor: pointer;
+}
+#cart .content img {
+  max-height: 125px;
+}
+#cart .content table {
+  width: 100%;
+}
+#cart .content table tr {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+#cart .content table tr th {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  border-bottom: 1px solid white;
+  padding-left: 15px;
+  padding-bottom: 5px;
+}
+#cart .content table tr th:last-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-bottom: none;
+}
+#cart .content table tr td {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  padding-left: 15px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid white;
+}
+/*# sourceMappingURL=style.css.map */

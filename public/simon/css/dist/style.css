@@ -630,3 +630,104 @@ html, body {
 #gamepage .content #game #marks .mark p {
   color: #D8FFFF;
 }
+
+#cart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat';
+}
+
+#cart .home-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#cart .home-logo .logo {
+  width: 196px;
+  height: 136px;
+}
+
+#cart .navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 0px;
+  background: linear-gradient(145deg, #051333, #06163d);
+  box-shadow: 5px 5px 11px #051231,  -5px -5px 11px #071841;
+}
+
+#cart .navbar .nav {
+  width: 20%;
+  text-align: center;
+  color: #E14544;
+  text-decoration: none;
+  border-radius: 0px;
+  background: #061539;
+  box-shadow: inset 5px 5px 10px #051230,  inset -5px -5px 10px #071842;
+}
+
+#cart .navbar .search {
+  background-color: #061539;
+  border: none;
+}
+
+#cart h1 {
+  color: #E14544;
+}
+
+#cart .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#cart .content .fa-times {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+#cart .content img {
+  max-height: 125px;
+}
+
+#cart .content table {
+  width: 100%;
+}
+
+#cart .content table tr {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#cart .content table tr th {
+  display: flex;
+  flex: 5;
+  border-bottom: 1px solid white;
+  padding-left: 15px;
+  padding-bottom: 5px;
+}
+
+#cart .content table tr th:last-child {
+  flex: 1;
+  border-bottom: none;
+}
+
+#cart .content table tr td {
+  flex: 5;
+  padding-left: 15px;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
